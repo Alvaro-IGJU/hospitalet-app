@@ -21,9 +21,9 @@
 
 <body>
     @include('header')
-    <div class="space"></div>
-    
     @include('list')
+    <div class="space"></div>
+    @include('footer')
 
 </body>
 

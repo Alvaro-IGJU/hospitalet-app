@@ -7,6 +7,8 @@
 }
 
 .icon {
+    text-decoration: none;
+    color: white;
     width: 20%;
     height: 60%;
     margin-left: 2%;
@@ -14,25 +16,67 @@
     font-weight: bold;
 }
 
+.icon:hover{
+    text-decoration: none;
+
+}
+
+footer{
+    display: flex;
+    align-items: center;
+    background-color: #4a73b1;
+    height: 61px;
+    margin-bottom: 0;
+}
+
+footer nav{
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+footer ul{
+    width: 100%;    
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+footer li{
+    margin-left: 10%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+footer a{
+   
+    color: white;
+    text-decoration: none;
+}
+footer a:hover{
+    text-decoration: underline;
+}
+
 header {
     position: fixed;
     top: 0;
     width: 100%;
-    height: 100px;
+    height: 70px;
     display: flex;
     flex-direction: row;
     background-color: #4a73b1;
     justify-content: space-around;
     align-items: center;
-    box-shadow: 7px 7px 20px #dbe4cf;
+    box-shadow: 3px 3px 10px #dbe4cf;
     border-bottom: 5px solid #92dccd;
 }
 
 header nav {
+    margin-top: 1%;
     display: flex;
     flex-direction: row;
     width: 100%;
-    height: 60%;
+    height: 100%;
     justify-content: center;
     align-items: center;
 }
@@ -59,35 +103,43 @@ header a{
     font-size: 1.4em;
 
 }
+header a:hover{
+    text-decoration: underline;
+}
+
 .listHouses{
     margin-top: 100px;
 }
 .space{
-    height: 50px;
+    height: 20px;
 }
 
 .list-houses{
     display: flex;
-    justify-content: space-around;
+    justify-content: center ;
+    
 }
 
 .presentation{
     display: flex;
     flex-direction: column;
     align-items: center;
-    height: 150px;
+    height: 100px;
 }
 
 .card-house{
     border: 1px solid #dbe4cf;
     border-radius: 20px;    
     /* background-color: #dbe4cf; */
-    height: 650px;
-    width: 40%;
+    height: 520px;
+    padding-bottom: 30px;
+    width: 30%;
     box-shadow: 7px 7px 20px #dbe4cf;
+}
+.card-house:nth-child(2){
+    margin-left: 4%;
 
 }
-
 .card-house:hover{
     /* height: 700px; */
     /* width: 50%; */
@@ -115,15 +167,19 @@ header a{
 .card-house h2{
     text-align: center;
     background-color: #ffe9ca;
-    padding: 20px;
+    padding: 8px;
     box-shadow: 7px 7px 20px #dbe4cf;
     /* border-bottom-left-radius: 20px;     */
     /* border-bottom-right-radius: 20px;  */
 }
 
-.specs div{
+.specs div{ 
     display: flex;
     justify-content: center;
     align-items: center;
     width: 33%;
 }
+
+/* .specs div *{ 
+    margin: 4%;
+} */

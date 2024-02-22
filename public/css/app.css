@@ -1,0 +1,129 @@
+.colors {
+    background-color: #4a73b1;
+    background-color: #92dccd;
+    background-color: #dbe4cf;
+    background-color: #fffefc;
+    background-color: #ffe9ca;
+}
+
+.icon {
+    width: 20%;
+    height: 60%;
+    margin-left: 2%;
+    font-size: 2em;
+    font-weight: bold;
+}
+
+header {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    height: 100px;
+    display: flex;
+    flex-direction: row;
+    background-color: #4a73b1;
+    justify-content: space-around;
+    align-items: center;
+    box-shadow: 7px 7px 20px #dbe4cf;
+    border-bottom: 5px solid #92dccd;
+}
+
+header nav {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    height: 60%;
+    justify-content: center;
+    align-items: center;
+}
+
+header ul {
+
+    display: flex;
+    flex-direction: row;
+    width: 90%;
+    height: 100px;
+    justify-content: end;
+    align-items: center;
+    list-style: none;
+}
+
+header li{
+    margin-left: 6%;
+    display: flex;
+    align-items: center;
+}
+header a{
+    color: white;
+    text-decoration: none;
+    font-size: 1.4em;
+
+}
+.listHouses{
+    margin-top: 100px;
+}
+.space{
+    height: 50px;
+}
+
+.list-houses{
+    display: flex;
+    justify-content: space-around;
+}
+
+.presentation{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 150px;
+}
+
+.card-house{
+    border: 1px solid #dbe4cf;
+    border-radius: 20px;    
+    /* background-color: #dbe4cf; */
+    height: 650px;
+    width: 40%;
+    box-shadow: 7px 7px 20px #dbe4cf;
+
+}
+
+.card-house:hover{
+    /* height: 700px; */
+    /* width: 50%; */
+    cursor: pointer;
+}
+.card-house img{
+    width: 100%;
+    height: 60%;
+    border-top-left-radius: 20px;    
+    border-top-right-radius: 20px;    
+    box-shadow: 7px 7px 20px #dac7ac;
+
+}
+
+.specs{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    width: 100%;
+    height: 30%;
+    border-bottom-left-radius: 20px;    
+    border-bottom-right-radius: 20px;  
+}
+.card-house h2{
+    text-align: center;
+    background-color: #ffe9ca;
+    padding: 20px;
+    box-shadow: 7px 7px 20px #dbe4cf;
+    /* border-bottom-left-radius: 20px;     */
+    /* border-bottom-right-radius: 20px;  */
+}
+
+.specs div{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 33%;
+}

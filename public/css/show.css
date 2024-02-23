@@ -1,7 +1,6 @@
 .show-house{
     margin: auto;
     width: 80%;
-    height: 650px;
     border: 1px solid #c9c6c6;
     box-shadow: 7px 7px 20px #c9c6c6;
 
@@ -18,10 +17,7 @@
 }
 
 .image{
-    height: 200px;
+    height: 400px;
+    border: 1px solid black;
 }
-@media (min-height: 900px) {
-    .show-house{
-        margin-top: 150px;
-    }
-}
+

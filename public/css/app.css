@@ -36,6 +36,8 @@
     padding-bottom: 30px;
     width: 30%;
     box-shadow: 7px 7px 20px #c9c6c6;
+    text-decoration: none;
+    color: black;
 }
 .card-house:nth-child(2){
     margin-left: 4%;

@@ -21,7 +21,6 @@ footer{
     align-items: center;
     background-color: #4a73b1;
     height: 61px;
-    margin-bottom: 0;
 }
 
 footer nav{
@@ -101,3 +100,6 @@ header a{
 header a:hover{
     text-decoration: underline;
 }
+
+
+  

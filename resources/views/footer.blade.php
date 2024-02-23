@@ -1,5 +1,5 @@
 <footer>
-    <a class="icon" href="">HOSPITALET</a>
+    <a class="icon" href="">CALAFAT</a>
     <nav>
         <ul class="">
             <li><a href="#">Inicio</a></li>

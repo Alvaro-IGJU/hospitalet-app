@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\ApartmentController;
+use App\Models\Apartment;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -15,4 +17,8 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return view('welcome');
+});
+
+Route::prefix('apartments')->group(function () {
+    Route::get('{id}', [ApartmentController::class, 'show'])->name('apartments.show');
 });

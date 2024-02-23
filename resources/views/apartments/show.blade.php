@@ -1,7 +1,5 @@
 <!DOCTYPE html>
-<html lang="es">
-
-
+<html lang="en">
 
 <head>
     <meta charset="UTF-8">
@@ -9,6 +7,7 @@
     <title>Bienvenido</title>
     <link rel="stylesheet" href="{{ url('css/app.css') }}" type="text/css">
     <link rel="stylesheet" href="{{ url('css/header_footer.css') }}" type="text/css">
+    <link rel="stylesheet" href="{{ url('css/show.css') }}" type="text/css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
         integrity="sha512-************" crossorigin="anonymous" />
 
@@ -18,10 +17,18 @@
 
 <body>
     @include('header')
-    @include('list')
-    <div class="space"></div>
+    {{-- <pre>
+        @json($apartment, JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE)
+    </pre> --}}
+    <section class="show-house">
+        <h2 class="title-house">{{ $apartment->name }}</h2>
+        <div class="photos">
+            @foreach ($photos as $photo)
+            <img class="image" src="{{ asset($photo) }}" alt="Foto del apartamento">
+            @endforeach
+        </div>
+    </section>
     @include('footer')
-
 </body>
 
 </html>

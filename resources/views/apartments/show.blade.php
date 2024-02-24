@@ -18,6 +18,9 @@
     <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.js"></script>
     <link rel="stylesheet" href="{{ url('css/show.css') }}" type="text/css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
 </head>
 
@@ -29,27 +32,38 @@
             @foreach ($photos as $index => $photo)
                 @if ($index == 0)
                     <a href="{{ asset($photo) }}" data-fancybox="gallery" class="first-photo">
-                        <img src="{{ asset($photo) }}" alt="Foto principal del apartamento" >
+                        <img src="{{ asset($photo) }}" alt="Foto principal del apartamento">
                     </a>
                 @elseif ($index > 0 && $index < 5)
                     @if ($index == 1)
                         <div class="side-photos">
                     @endif
-                        <a href="{{ asset($photo) }}" data-fancybox="gallery" class="side-photo">
-                            <img src="{{ asset($photo) }}" alt="Foto del apartamento" >
-                        </a>
+                    <a href="{{ asset($photo) }}" data-fancybox="gallery" class="side-photo">
+                        <img src="{{ asset($photo) }}" alt="Foto del apartamento">
+                    </a>
                     @if ($index == 4)
-                        </div>
-                    @endif
-                @else
-                <a hidden href="{{ asset($photo) }}" data-fancybox="gallery" class="first-photo">
-                    <img src="{{ asset($photo) }}" alt="Foto principal del apartamento" >
-                </a>
-                @endif
-            @endforeach
+        </div>
+        @endif
+    @else
+        <a hidden href="{{ asset($photo) }}" data-fancybox="gallery" class="first-photo">
+            <img src="{{ asset($photo) }}" alt="Foto principal del apartamento">
+        </a>
+        @endif
+        @endforeach
         </div>
     </section>
-    @include('footer')
+    <section class="house-specs">
+        <div class="specs-container">
+            <h4>Algo que poner aquí</h4>
+            <div class="separator"></div>
+        </div>
+        <div class="specs-container">
+            <input type="text" id="calendar">
+
+        </div>
+    </section>
+    <script src="{{ asset('js/calendar.js') }}"></script>
+
 
 </body>
 

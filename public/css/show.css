@@ -2,7 +2,7 @@
     margin: auto;
     width: 80%;
     margin-top: 100px;
-    height: 800px;
+    height: 700px;
 }
 
 .title-house {
@@ -70,8 +70,57 @@
 
     border-bottom-right-radius: 20px;
 }
+.separator{
+    border-top: 1px solid #c9c6c6; ;
+}
 
+.house-specs{
+    margin: auto;
+    width: 80%;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    height: 500px;
+}
 
+.specs-container{
+    
+    width: 40%;
+    height: 50%;
+
+}
 .fancybox-bg {
     background: rgba(48, 48, 48, 0.8); /* Color blanco con opacidad 0.8 (80%) */
 }
+
+
+/* Dispositivos muy pequeños (teléfonos móviles en modo retrato, menos de 480px) */
+@media (max-width: 480px) {
+    /* Estilos */
+  }
+  
+  /* Dispositivos pequeños (teléfonos móviles en modo paisaje, de 481px a 768px) */
+  @media (min-width: 481px) and (max-width: 768px) {
+    /* Estilos */
+  }
+  
+  /* Tabletas en modo retrato y paisaje / pantallas bajas (de 769px a 1024px) */
+  @media (min-width: 769px) and (max-width: 1024px) {
+    /* Estilos */
+  }
+  
+  /* Pequeñas computadoras de escritorio (de 1025px a 1280px) */
+  @media (min-width: 1025px) and (max-width: 1280px) {
+    /* Estilos */
+  }
+  
+  /* Computadoras de escritorio medianas (de 1281px a 1440px) */
+  @media (min-width: 1281px) and (max-width: 1440px) {
+    /* Estilos */
+  }
+  
+  /* Computadoras de escritorio grandes (más de 1441px) */
+  @media (min-width: 1441px) {
+    /* Estilos */
+  }

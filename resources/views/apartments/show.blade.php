@@ -56,6 +56,7 @@
         <div class="specs-container">
             <h4>Algo que poner aquí</h4>
             <div class="separator"></div>
+            <p>{{$apartment->description}}</p>
         </div>
         <div class="specs-container">
             <input type="text" id="calendar">

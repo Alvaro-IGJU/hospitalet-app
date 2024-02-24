@@ -14,7 +14,7 @@ class ApartmentController extends Controller
             abort(404, 'Apartamento no encontrado');
         }
         $photos = $this->getApartmentPhotos($id);
-        return view('apartments.show', ['apartment' => $apartment,'photos'=>$photos]);
+        return view('apartments.show', ['apartment' => $apartment, 'photos' => $photos]);
     }
 
     public function getApartmentPhotos($id): array
@@ -22,20 +22,23 @@ class ApartmentController extends Controller
         $apartmentDirectory = public_path('uploads/' . $id);
         if (file_exists($apartmentDirectory)) {
             $files = scandir($apartmentDirectory);
-    
+
             // Filtrar los archivos para eliminar "." y ".." (directorios de referencia)
             $files = array_diff($files, array('.', '..'));
-    
+
             // Construir la ruta completa para cada archivo
             $files = array_map(function ($file) use ($id) {
                 return 'uploads/' . $id . '/' . $file;
             }, $files);
-    
+
             // Reemplazar la barra diagonal inversa con la barra diagonal en cada ruta de archivo
             $files = array_map(function ($file) {
                 return str_replace('\\', '/', $file);
             }, $files);
-    
+
+            // Girar el array para que los archivos se ordenen al revés
+            $files = array_reverse($files);
+
             // Ahora puedes hacer lo que necesites con los archivos, como pasarlos a tu vista
             return $files;
         } else {
@@ -43,5 +46,4 @@ class ApartmentController extends Controller
             return [];
         }
     }
-    
 }

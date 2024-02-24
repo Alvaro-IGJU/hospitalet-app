@@ -23,9 +23,21 @@
     <section class="show-house">
         <h2 class="title-house">{{ $apartment->name }}</h2>
         <div class="photos">
-            @foreach ($photos as $photo)
-            <img class="image" src="{{ asset($photo) }}" alt="Foto del apartamento">
-            @endforeach
+            @foreach ($photos as $index => $photo)
+                @if ($index == 0)
+                    {{-- <div class="first-photo"> --}}
+                        <img src="{{ asset($photo) }}" alt="Foto principal del apartamento" class="first-photo">
+                    {{-- </div> --}}
+                @elseif ($index > 0 && $index < 5)
+                    @if ($index == 1)
+                        <div class="side-photos">
+                    @endif
+                        <img src="{{ asset($photo) }}" alt="Foto del apartamento" class="side-photo">
+                    @if ($index == 4)
+                        </div>
+                    @endif
+                @endif
+        @endforeach
         </div>
     </section>
     @include('footer')

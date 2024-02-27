@@ -9,28 +9,14 @@ class Apartment extends Model
 {
     use HasFactory;
 
-    /**
-     * The attributes that are mass assignable.
-     *
-     * @var array<int, string>
-     */
-    protected $fillable = [
-        'name',
-        'description',
-        'views',
-        'bathroom',
-        'bedroom_laundry',
-        'entertainment',
-        'for_families',
-        'refrigeration',
-        'kitchen',
-        'ubi_characteristics',
-        'outside',
-        'parking',
-        'services',
-        'image'
-    ];
+    protected $fillable = ['name', 'description'];
+
+    public function icons()
+    {
+        return $this->belongsToMany(Icon::class, 'apartment_icon');
+    }
 }
+
 
 
 /*

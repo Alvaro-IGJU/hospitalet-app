@@ -96,6 +96,16 @@
     background: rgba(48, 48, 48, 0.8); /* Color blanco con opacidad 0.8 (80%) */
 }
 
+#calendar {
+    margin-left: 100px;
+    padding-bottom: 100px;
+    width: 600px;
+}
+
+/* Color de seleccion de fechas **/
+.fc-highlight {
+    background-color: #a7e6fc; /* Cambia el color según tus preferencias */
+  }
 
 /* Dispositivos muy pequeños (teléfonos móviles en modo retrato, menos de 480px) */
 @media (max-width: 480px) {

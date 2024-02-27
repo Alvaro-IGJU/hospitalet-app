@@ -7,9 +7,11 @@
     <title>Bienvenido</title>
     <link rel="stylesheet" href="{{ url('css/app.css') }}" type="text/css">
     <link rel="stylesheet" href="{{ url('css/header_footer.css') }}" type="text/css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-**" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+        integrity="sha512-**" crossorigin="anonymous" />
 
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
 
     <!-- Agrega las bibliotecas de Fancybox -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.css" />
@@ -27,19 +29,21 @@
         <h2 class="title-house">{{ $apartment->name }}</h2>
         <div class="photos">
             @foreach ($photos as $index => $photo)
-            @if ($index == 0)
-            <a href="{{ asset($photo) }}" data-fancybox="gallery" class="first-photo">
-                <img src="{{ asset($photo) }}" alt="Foto principal del apartamento">
-            </a>
-            @elseif ($index > 0 && $index < 5) @if ($index==1) <div class="side-photos">
-                @endif
-                <a href="{{ asset($photo) }}" data-fancybox="gallery" class="side-photo">
-                    <img src="{{ asset($photo) }}" alt="Foto del apartamento">
-                </a>
-                @if ($index == 4)
+                @if ($index == 0)
+                    <a href="{{ asset($photo) }}" data-fancybox="gallery" class="first-photo">
+                        <img src="{{ asset($photo) }}" alt="Foto principal del apartamento">
+                    </a>
+                @elseif ($index > 0 && $index < 5)
+                    @if ($index == 1)
+                        <div class="side-photos">
+                    @endif
+                    <a href="{{ asset($photo) }}" data-fancybox="gallery" class="side-photo">
+                        <img src="{{ asset($photo) }}" alt="Foto del apartamento">
+                    </a>
+                    @if ($index == 4)
         </div>
         @endif
-        @else
+    @else
         <a hidden href="{{ asset($photo) }}" data-fancybox="gallery" class="first-photo">
             <img src="{{ asset($photo) }}" alt="Foto principal del apartamento">
         </a>
@@ -51,7 +55,28 @@
         <div class="specs-container">
             <h4>Algo que poner aquí</h4>
             <div class="separator"></div>
-            <p>{{$apartment->description}}</p>
+            <p>{{ $apartment->description }}</p>
+            <div class="separator"></div>
+            <div>
+                @php
+                $shownIds = [];
+            @endphp
+            
+            @foreach ($apartment->icons as $icon)
+                @if (!in_array($icon->id, $shownIds))
+                    <span>{!! $icon->tag !!}</span> <span>{{ $icon->text }}</span><br>
+                    @php
+                        $shownIds[] = $icon->id;
+                    @endphp
+                @else
+                    <span class="hidden">{!! $icon->tag !!}</span> <span class="hidden">{{ $icon->text }}</span><br>
+                @endif
+            @endforeach
+            
+            
+            
+            
+            </div>
         </div>
         <div class="specs-container">
             <div id='calendar'></div>

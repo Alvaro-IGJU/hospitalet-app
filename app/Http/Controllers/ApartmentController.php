@@ -15,10 +15,7 @@ class ApartmentController extends Controller
             abort(404, 'Apartamento no encontrado');
         }
         $photos = $this->getApartmentPhotos($id);
-        $types = Type::all();
-        for ($i=0; $i < count($types); $i++) { 
-            # code...
-        }
+      
         return view('apartments.show', ['apartment' => $apartment, 'photos' => $photos]);
     }
 

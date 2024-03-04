@@ -9,14 +9,29 @@ class Apartment extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['name', 'description'];
-
-    public function icons()
-    {
-        return $this->belongsToMany(Icon::class, 'apartment_icon');
-    }
+    /**
+     * The attributes that are mass assignable.
+     *
+     * @var array<int, string>
+     */
+    protected $fillable = [
+        'name',
+        'description',
+        'views',
+        'bathroom',
+        'bedroom_laundry',
+        'entertainment',
+        'for_families',
+        'refrigeration',
+        'kitchen',
+        'ubi_characteristics',
+        'outside',
+        'parking',
+        'services',
+        'image'
+    ];
+   
 }
-
 
 
 /*
@@ -34,5 +49,13 @@ VALUES
 '["Patio o balcón (privada)", "Mobiliario exterior", "Elementos básicos para la playa"]', 
 '["Aparcamiento gratuito en la calle"]', 
 '["Disponible para estancias largas"]'
+);
+*/
+
+
+/*
+INSERT INTO apartments (name, description) 
+VALUES 
+('Apartamento con increíbles vistas al mar', 'Luminoso apartamento con increíbles vistas al mar, equipado con lo necesario para pasar unas fantásticas vacaciones desde donde contemplar amaneceres únicos y espectaculares. Ideal para parejas. Cerca de calas cristalinas aptas para buceo, relajarse, etc... Ubicado en Calafat, urbanización tranquila y familiar. Cerca de puntos de interés tales como el Delta del Ebro, Port Aventura, las ruinas de Tarraco, etc...'
 );
 */

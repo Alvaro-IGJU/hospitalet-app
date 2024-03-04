@@ -75,7 +75,11 @@
     margin-top: 5%;
     margin-bottom: 5%;
 }
-
+.separator-spec{
+    border-top: 1px solid #c9c6c6; ;
+    margin-top: 0%;
+    margin-bottom: 0%;
+}
 .house-specs{
     margin: auto;
     width: 80%;
@@ -92,6 +96,33 @@
     height: 50%;
 
 }
+
+.specs{
+    width: 100%;
+    height: 800px;
+    display: flex;
+    flex-direction: column;
+}
+.specs div{
+    display: flex;
+    justify-content: start;
+    height: 20px;
+    width: 100%;
+}
+.individual-spec{
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    justify-content: start;
+    align-items: center !important;
+
+}
+
+.individual-spec p{
+    margin: 0;
+}
+
+    
 .fancybox-bg {
     background: rgba(48, 48, 48, 0.8); /* Color blanco con opacidad 0.8 (80%) */
 }

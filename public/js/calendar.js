@@ -1,3 +1,5 @@
+//https://fullcalendar.io/docs/multimonth-grid
+
 document.addEventListener('DOMContentLoaded', function() {
     var calendarEl = document.getElementById('calendar');
   
@@ -9,21 +11,28 @@ document.addEventListener('DOMContentLoaded', function() {
       locale: 'es',
       firstDay: 1,
       dateClick: function(info) {
-
-        var dayOfWeek = info.date.getDay();
-        
-
         var startDate = new Date(info.date);
-        startDate.setDate(startDate.getDate() + (6 - dayOfWeek) + (dayOfWeek === 6 ? 7 : 0));
-  
+        var dayOfWeek = startDate.getDay();
+        
+        startDate.setDate(startDate.getDate() - dayOfWeek -1);
+
         var endDate = new Date(startDate);
-        endDate.setDate(endDate.getDate() + 8);
-  
+        endDate.setDate(endDate.getDate() + 7);
+
         calendar.select(startDate, endDate);
-        alert(startDate + endDate);
       },
+      
     });
   
     calendar.render();
 });
 
+window.addEventListener('scroll', function() {
+  var element = document.getElementById("calendar");
+  var distanceFromTop = element.getBoundingClientRect().top;
+  if (distanceFromTop <= 100) {
+    element.classList.add('sticky');
+} else {
+    element.classList.remove('sticky');
+}
+});

@@ -53,7 +53,7 @@
     </section>
     <section class="house-specs">
         <div class="specs-container">
-            <h4>Alojamiento entero: apto. residencial en Calafat, España
+            <h4>Apartamento residencial en Calafat, España
             </h4>
             <div class="separator"></div>
             <p>{{ $apartment->description }}</p>
@@ -442,16 +442,59 @@
                     <p>Aparcamiento gratuito en la calle</p>
                 </div>
                 <div class="separator-spec"></div>
-               
+
             </div>
-            
+
 
         </div>
-            <div id='calendar' ></div>
+        <div id='calendar'></div>
         </div>
     </section>
     <div class="separator"></div>
-    <section class="host"></section>
+    <section class="rules">
+        <h4>Qué debes saber</h4>
+        <div>
+        <div>
+           
+            <div>
+                <p><b>Normas de la casa</b></p>
+                <p>Llegada a partir de las 16:00
+                </p>
+                <p>Salida antes de las 10:00
+                </p>
+                <p>Máximo 2 huéspedes
+
+                </p>
+            </div>
+        </div>
+        <div>
+            <div>
+                <p><b>Seguridad y propiedad
+                </b></p>
+                <p>No consta que el alojamiento tenga un detector de monóxido de carbono
+                </p>
+                <p>No consta que el alojamiento tenga un detector de humo
+                </p>
+                <p>Lago, río u otra masa de agua cerca
+
+                </p>
+            </div>
+        </div>
+        <div>
+            <div>
+                <p><b>Política de cancelación
+
+                </b></p>
+                <p>Cancelación gratuita antes del 17 may.
+
+                </p>
+                <p>Consulta la política de cancelación completa del anfitrión, que se aplicará incluso si cancelas por haber contraído la COVID-19 o por cualquier problema relacionado con el coronavirus.
+                </p>
+                
+            </div>
+        </div>
+    </div>
+    </section>
     <script type="module" src="{{ asset('js/calendar.js') }}"></script>
 
 

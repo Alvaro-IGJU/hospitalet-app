@@ -87,7 +87,7 @@
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: center;
-    height: 3800px;
+    height: 3500px;
 }
 
 .specs-container{
@@ -149,11 +149,27 @@
 
 .fc-day-header, .fc-day, .fc-event-title { color: black; }
 
-.host{
-    border: 1px solid red;
+.rules{
     height: 200px;
+    display: flex;
+    justify-content: space-around;
+    align-items: self-start;
+    flex-direction: column;
 }
-
+.rules > h4{
+    margin-left: 1.5%;
+    margin-bottom: 1.5%;
+}
+.rules >div{
+    display: flex;
+    justify-content: space-around;
+    flex-direction: row;
+    flex-wrap: nowrap   ;
+    font-size: 1.1em;
+}
+.rules >div>div{
+    width: 30%;
+}
 /* Color de seleccion de fechas **/
 .fc-highlight {
     background-color: #a7e6fc; /* Cambia el color según tus preferencias */

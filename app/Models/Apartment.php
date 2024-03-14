@@ -12,7 +12,7 @@ class Apartment extends Model
     /**
      * The attributes that are mass assignable.
      *
-     * @var array<int, string>
+     * @var array
      */
     protected $fillable = [
         'name',
@@ -30,7 +30,14 @@ class Apartment extends Model
         'services',
         'image'
     ];
-   
+
+    /**
+     * Get the bookings for the apartment.
+     */
+    public function bookings()
+    {
+        return $this->hasMany(Booking::class);
+    }
 }
 
 

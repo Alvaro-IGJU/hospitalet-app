@@ -204,3 +204,12 @@
   @media (min-width: 1441px) {
     /* Estilos */
   }
+
+  .fc-event-time{
+    display: none;
+  }
+
+  .fc-event-title{
+    margin-left: 5%;
+    font-weight: bold;
+  }

@@ -14,10 +14,15 @@ class ApartmentController extends Controller
         if (!$apartment) {
             abort(404, 'Apartamento no encontrado');
         }
+
+        // Obtener todos los bookings asociados con este apartamento
+        $bookings = $apartment->bookings;
+
         $photos = $this->getApartmentPhotos($id);
-      
-        return view('apartments.show', ['apartment' => $apartment, 'photos' => $photos]);
+
+        return view('apartments.show', ['apartment' => $apartment, 'bookings' => $bookings, 'photos' => $photos]);
     }
+
 
     public function getApartmentPhotos($id): array
     {

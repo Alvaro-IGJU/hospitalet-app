@@ -14,24 +14,6 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
-        Type::truncate(); // Vacía la tabla antes de insertar nuevos datos.
-
-        $types = [
-            'Vistas panorámicas',
-            'Baño',
-            'Dormitorio y lavandería',
-            'Entretenimiento',
-            'Para familias',
-            'Calefacción y refrigeración',
-            'Cocina y comedor',
-            'Características de la ubicación',
-            'Exterior',
-            'Aparcamiento e instalaciones',
-            'Servicios',
-        ];
-
-        foreach ($types as $typeName) {
-            Type::create(['name' => $typeName]);
-        }
+      
     }
 }

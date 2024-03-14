@@ -26,7 +26,7 @@ class BookingsTableSeeder extends Seeder
                 $booking = new Booking();
                 $booking->apartment_id = 1; // ID del apartamento
                 $booking->check_in = $currentDate->toDateString();
-                $booking->check_out = $currentDate->copy()->addDays(6)->toDateString(); // Agregar 6 días para una semana
+                $booking->check_out = $currentDate->copy()->addDays(7)->toDateString(); // Agregar 6 días para una semana
                 $booking->save();
 
 

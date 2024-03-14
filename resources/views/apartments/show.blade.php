@@ -24,7 +24,7 @@
     <script>
         var bookings = @json($bookings);
     </script>
-    
+
 </head>
 
 <body>
@@ -453,55 +453,84 @@
         </div>
         <div id="datePickDiv">
             <div id='calendar'></div>
-            <div id="dateSelector"></div>
-        </div>
-     
+            <div id="dateSelector">
+                <div>
+                    <h3 id="price"></h3>noche
+                </div>
+                <div class="priceGenerator">
+                    <div class="border-price date">
+                        <div class="firstDay">
+                            <div class="selectorTitle"><p>LLEGADA</p></div>
+                            <div></div>
+                        </div>
+                        <div class="finalDay">
+                            <div class="selectorTitle"><p>SALIDA</p></div>
+                            <div></div>
+                        </div>
+                    </div>
+                    <div class="border-price people">
+                        <div class="selectorTitle"><p>HUÉSPEDES</p></div>
+                        <div></div>
+                    </div>
+
+                </div>
+                <div class="separator-date">
+
+                </div>
+                <div class="totalPrice">
+                    <div>Total</div>
+                    <div>32€</div>
+                </div>
+
+            </div>
+
         </div>
     </section>
     <div class="separator"></div>
     <section class="rules">
         <h4>Qué debes saber</h4>
         <div>
-        <div>
-           
             <div>
-                <p><b>Normas de la casa</b></p>
-                <p>Llegada a partir de las 16:00
-                </p>
-                <p>Salida antes de las 10:00
-                </p>
-                <p>Máximo 2 huéspedes
 
-                </p>
+                <div>
+                    <p><b>Normas de la casa</b></p>
+                    <p>Llegada a partir de las 16:00
+                    </p>
+                    <p>Salida antes de las 10:00
+                    </p>
+                    <p>Máximo 2 huéspedes
+
+                    </p>
+                </div>
+            </div>
+            <div>
+                <div>
+                    <p><b>Seguridad y propiedad
+                        </b></p>
+                    <p>No consta que el alojamiento tenga un detector de monóxido de carbono
+                    </p>
+                    <p>No consta que el alojamiento tenga un detector de humo
+                    </p>
+                    <p>Lago, río u otra masa de agua cerca
+
+                    </p>
+                </div>
+            </div>
+            <div>
+                <div>
+                    <p><b>Política de cancelación
+
+                        </b></p>
+                    <p>Cancelación gratuita antes del 17 may.
+
+                    </p>
+                    <p>Consulta la política de cancelación completa del anfitrión, que se aplicará incluso si cancelas
+                        por haber contraído la COVID-19 o por cualquier problema relacionado con el coronavirus.
+                    </p>
+
+                </div>
             </div>
         </div>
-        <div>
-            <div>
-                <p><b>Seguridad y propiedad
-                </b></p>
-                <p>No consta que el alojamiento tenga un detector de monóxido de carbono
-                </p>
-                <p>No consta que el alojamiento tenga un detector de humo
-                </p>
-                <p>Lago, río u otra masa de agua cerca
-
-                </p>
-            </div>
-        </div>
-        <div>
-            <div>
-                <p><b>Política de cancelación
-
-                </b></p>
-                <p>Cancelación gratuita antes del 17 may.
-
-                </p>
-                <p>Consulta la política de cancelación completa del anfitrión, que se aplicará incluso si cancelas por haber contraído la COVID-19 o por cualquier problema relacionado con el coronavirus.
-                </p>
-                
-            </div>
-        </div>
-    </div>
     </section>
     <script type="module" src="{{ asset('js/calendar.js') }}"></script>
 

@@ -73,14 +73,12 @@
 
 .separator {
     border-top: 1px solid #c9c6c6;
-    ;
     margin-top: 5%;
     margin-bottom: 5%;
 }
 
 .separator-spec {
     border-top: 1px solid #c9c6c6;
-    ;
     margin-top: 0%;
     margin-bottom: 0%;
 }
@@ -242,11 +240,15 @@
     height: 250px;
     width: 60%;
     margin: auto;
-    margin-top: 16%;
+    margin-top: 0%;
     margin-left: 28%;
     border-radius: 10px;
     position: -webkit-sticky;
     position: sticky;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
 }
 
 
@@ -270,4 +272,82 @@
     justify-content: center;
     flex-direction: column;
     align-items: center;
+}
+
+.priceGenerator{
+    width: 100%;
+    height: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.priceGenerator > *{
+    height: 50px;
+    border: 1px solid red;
+}
+
+.border-price{
+    border: 1px solid #c9c6c6;
+    width: 80%;
+}
+
+.date{
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    border-bottom: none;
+    display: flex;
+    flex-direction: row;
+}
+
+.totalPrice{
+    height: 20%;
+    /* border: 1px solid red; */
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+}
+
+
+.totalPrice div{
+    font-weight: bold;
+    display: flex;
+    width: 30%;
+}
+
+
+.totalPrice div:first{
+    justify-content: left;
+
+}
+.totalPrice div:nth-child(2){
+    justify-content: right;
+
+}
+.firstDay,.finalDay{
+    width: 50%;
+}
+.firstDay{
+    border-right: 1px solid #c9c6c6;
+}
+
+.selectorTitle{
+  display: flex;
+  justify-content: start;
+  font-size: 0.7em;
+  font-weight: bold;
+}
+
+.selectorTitle p{
+    text-align: start;
+    margin-left: 4%;
+    margin-top: 2%;
+    width: 100%;
+}
+
+.separator-date {
+    border-top: 1px solid #cecece;
+    width: 90%;
 }

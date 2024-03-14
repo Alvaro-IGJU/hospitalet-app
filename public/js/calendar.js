@@ -33,7 +33,7 @@ function generateEvents(info, successCallback, failureCallback) {
           events.push({
             title: "Reservado",
             start: bookingStartDate,
-            end: new Date(bookingEndDate),
+            end: new Date(bookingEndDate ),
             backgroundColor: "#FF6666",
           });
           currentDate.setDate(currentDate.getDate() + 6);

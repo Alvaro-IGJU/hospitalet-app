@@ -8,7 +8,7 @@ function generateEvents(info, successCallback, failureCallback) {
       mes_actual++;
     } else if (operacion == "prev") {
       mes_actual--;
-    }else if(operacion == "today"){
+    } else if (operacion == "today") {
       mes_actual = (new Date()).getMonth();
     }
 
@@ -17,27 +17,19 @@ function generateEvents(info, successCallback, failureCallback) {
     } else if (mes_actual < 0) {
       mes_actual = 11;
     }
-    console.log(mes_actual);
     var events = [];
     var currentDate = new Date();
     currentDate.setMonth(mes_actual);
     currentDate.setDate(1);
 
     let month = mes_actual;
-    console.log(".........................................");
     while (currentDate.getMonth() === month) {
       for (var i = 0; i < bookings.length; i++) {
         var bookingStartDate = new Date(bookings[i].check_in);
         var bookingEndDate = new Date(bookings[i].check_out);
 
         if (currentDate >= bookingStartDate && currentDate <= bookingEndDate) {
-          console.log(currentDate);
-          console.log(bookingEndDate);
-          console.log(currentDate >= bookingStartDate);
-          console.log(currentDate <= bookingEndDate);
-          console.log("---------------------");
 
-          console.log("HA ENTRADO");
           events.push({
             title: "Reservado",
             start: bookingStartDate,
@@ -112,12 +104,20 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 
 
-window.addEventListener('scroll', function() {
+window.addEventListener('scroll', function () {
   var element = document.getElementById("calendar");
   var distanceFromTop = element.getBoundingClientRect().top;
   if (distanceFromTop <= 100) {
     element.classList.add('sticky');
-} else {
+  } else {
     element.classList.remove('sticky');
-}
+  }
+
+  var dateSelector = document.getElementById("dateSelector");
+  var distanceFromTop = dateSelector.getBoundingClientRect().top;
+  if (distanceFromTop <= 650) {
+    dateSelector.classList.add('sticky');
+  } else {
+    dateSelector.classList.remove('sticky');
+  }
 });

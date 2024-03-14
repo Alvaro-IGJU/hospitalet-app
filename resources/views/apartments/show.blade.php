@@ -451,7 +451,11 @@
 
 
         </div>
-        <div id='calendar'></div>
+        <div id="datePickDiv">
+            <div id='calendar'></div>
+            <div id="dateSelector"></div>
+        </div>
+     
         </div>
     </section>
     <div class="separator"></div>

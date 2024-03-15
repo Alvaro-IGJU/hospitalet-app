@@ -26,7 +26,7 @@ class BookingsTableSeeder extends Seeder
             $booking->apartment_id = 1; // ID del apartamento
             $booking->check_in = $currentDate->toDateString();
             $booking->check_out = $currentDate->copy()->addDays(7)->toDateString(); // Agregar 6 días para una semana
-            $booking->price = 100.00; // Precio de la reserva
+            $booking->price = 114.00; // Precio de la reserva
             $booking->booked = true; // Marcar como reservado
             $booking->save();
 

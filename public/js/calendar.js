@@ -33,7 +33,7 @@ function generateEvents(info, successCallback, failureCallback) {
           events.push({
             title: "Reservado",
             start: bookingStartDate,
-            end: new Date(bookingEndDate ),
+            end: new Date(bookingEndDate),
             backgroundColor: "#FF6666",
           });
           currentDate.setDate(currentDate.getDate() + 6);
@@ -55,6 +55,7 @@ document.addEventListener("DOMContentLoaded", function () {
   var calendar = new FullCalendar.Calendar(calendarEl, {
     timeZone: "UTC",
     initialView: "dayGridMonth",
+    fixedWeekCount: false,
     editable: false,
     selectable: true,
     locale: "es",
@@ -68,12 +69,39 @@ document.addEventListener("DOMContentLoaded", function () {
       var startDate = new Date(info.date);
       var dayOfWeek = startDate.getDay();
 
-      startDate.setDate(startDate.getDate() - dayOfWeek - 1);
-
+      if (startDate.getDay() != 6) {
+        startDate.setDate(startDate.getDate() - dayOfWeek - 1);
+      }
       var endDate = new Date(startDate);
       endDate.setDate(endDate.getDate() + 7);
+      let canBook = true;
+      //------------------------------------------------
+      for (var i = 0; i < bookings.length; i++) {
+        var bookingStartDate = new Date(bookings[i].check_in);
+        var bookingEndDate = new Date(bookings[i].check_out);
+        if (startDate >= bookingStartDate && endDate <= bookingEndDate) {
+          canBook = false;
 
-      calendar.select(startDate, endDate);
+          break;
+        }
+      }
+
+      //------------------------------------------------
+ 
+      if (canBook) {
+        calendar.select(startDate, endDate);
+        document.querySelectorAll('.fc-highlight').forEach(function (el) {
+          el.style.backgroundColor = "rgba(210, 255, 150,.3)";
+        });
+      } else {
+        calendar.select(startDate, endDate);
+
+        document.querySelectorAll('.fc-highlight').forEach(function (el) {
+          el.style.backgroundColor = "rgba(255, 110, 94,.3)";
+        });
+
+      }
+
     },
     events: generateEvents,
   });

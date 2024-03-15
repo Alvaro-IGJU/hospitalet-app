@@ -351,3 +351,8 @@
     border-top: 1px solid #cecece;
     width: 90%;
 }
+
+
+.fc-day{
+    cursor: pointer;
+}

@@ -40,7 +40,7 @@
 }
 
 .side-photos {
- 
+
 
     display: flex;
     flex-wrap: wrap;
@@ -70,44 +70,130 @@
 
     border-bottom-right-radius: 20px;
 }
-.separator{
-    border-top: 1px solid #c9c6c6; ;
+
+.separator {
+    border-top: 1px solid #c9c6c6;
     margin-top: 5%;
     margin-bottom: 5%;
 }
 
-.house-specs{
+.separator-spec {
+    border-top: 1px solid #c9c6c6;
+    margin-top: 0%;
+    margin-bottom: 0%;
+}
+
+.house-specs {
     margin: auto;
     width: 80%;
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: center;
-    height: 500px;
+    height: 3500px;
 }
 
-.specs-container{
-    
-    width:  40%;
+.specs-container {
+    width: 40%;
     height: 50%;
 
 }
-.fancybox-bg {
-    background: rgba(48, 48, 48, 0.8); /* Color blanco con opacidad 0.8 (80%) */
+
+.specs {
+
+    width: 100%;
+    height: fit-content;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
 }
-.hidden{
+
+.specs div {
+    display: flex;
+    justify-content: start;
+    height: 20px;
+    width: 100%;
+}
+
+.specs h5 {
+    margin-top: 5%;
+    margin-bottom: 5%;
+}
+
+.individual-spec {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    justify-content: start;
+    align-items: center;
+    margin-bottom: 5%;
+}
+
+.individual-spec p {
+    margin: 0;
+    margin-left: 3%;
+}
+
+
+.fancybox-bg {
+    background: rgba(48, 48, 48, 0.8);
+    /* Color blanco con opacidad 0.8 (80%) */
+}
+
+.hidden {
     display: none;
 }
+
 #calendar {
     margin-left: 100px;
-    padding-bottom: 100px;
-    width: 600px;
+    padding-bottom: 80px;
+    width: 500px;
+    height: 17%;
+    position: -webkit-sticky;
+    position: sticky;
+}
+
+#calendar.sticky {
+    top: 100px;
+    /* Cuando se vuelve pegajoso, se pega en la parte superior */
+}
+
+.fc-day-header,
+.fc-day,
+.fc-event-title {
+    color: black;
+}
+
+.rules {
+    height: 200px;
+    display: flex;
+    justify-content: space-around;
+    align-items: self-start;
+    flex-direction: column;
+}
+
+.rules>h4 {
+    margin-left: 1.5%;
+    margin-bottom: 1.5%;
+}
+
+.rules>div {
+    display: flex;
+    justify-content: space-around;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    font-size: 1.1em;
+}
+
+.rules>div>div {
+    width: 30%;
 }
 
 /* Color de seleccion de fechas **/
 .fc-highlight {
-    background-color: #a7e6fc; /* Cambia el color según tus preferencias */
-  }
+    background-color: #a7e6fc;
+    /* Cambia el color según tus preferencias */
+}
 
 iframe{
     margin-top: 300px;
@@ -116,29 +202,161 @@ iframe{
 /* Dispositivos muy pequeños (teléfonos móviles en modo retrato, menos de 480px) */
 @media (max-width: 480px) {
     /* Estilos */
-  }
-  
-  /* Dispositivos pequeños (teléfonos móviles en modo paisaje, de 481px a 768px) */
-  @media (min-width: 481px) and (max-width: 768px) {
+}
+
+/* Dispositivos pequeños (teléfonos móviles en modo paisaje, de 481px a 768px) */
+@media (min-width: 481px) and (max-width: 768px) {
     /* Estilos */
-  }
-  
-  /* Tabletas en modo retrato y paisaje / pantallas bajas (de 769px a 1024px) */
-  @media (min-width: 769px) and (max-width: 1024px) {
+}
+
+/* Tabletas en modo retrato y paisaje / pantallas bajas (de 769px a 1024px) */
+@media (min-width: 769px) and (max-width: 1024px) {
     /* Estilos */
-  }
-  
-  /* Pequeñas computadoras de escritorio (de 1025px a 1280px) */
-  @media (min-width: 1025px) and (max-width: 1280px) {
+}
+
+/* Pequeñas computadoras de escritorio (de 1025px a 1280px) */
+@media (min-width: 1025px) and (max-width: 1280px) {
     /* Estilos */
-  }
-  
-  /* Computadoras de escritorio medianas (de 1281px a 1440px) */
-  @media (min-width: 1281px) and (max-width: 1440px) {
+}
+
+/* Computadoras de escritorio medianas (de 1281px a 1440px) */
+@media (min-width: 1281px) and (max-width: 1440px) {
     /* Estilos */
-  }
-  
-  /* Computadoras de escritorio grandes (más de 1441px) */
-  @media (min-width: 1441px) {
+}
+
+/* Computadoras de escritorio grandes (más de 1441px) */
+@media (min-width: 1441px) {
     /* Estilos */
-  }
+}
+
+.fc-event-time {
+    display: none;
+}
+
+.fc-event-title {
+    margin-left: 5%;
+    font-weight: bold;
+}
+
+#dateSelector {
+    box-shadow: 1px 1px 5px rgb(192, 192, 192);
+    border: 1px solid rgb(228, 228, 228);
+    height: 250px;
+    width: 60%;
+    margin: auto;
+    margin-top: 0%;
+    margin-left: 28%;
+    border-radius: 10px;
+    position: -webkit-sticky;
+    position: sticky;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+}
+
+
+#calendar.sticky {
+    top: 100px;
+    /* Cuando se vuelve pegajoso, se pega en la parte superior */
+}
+
+#dateSelector.sticky {
+    top: 650px;
+    /* Cuando se vuelve pegajoso, se pega en la parte superior */
+}
+
+.fc-event {
+    border: 2px solid red;
+}
+
+
+#datePickDiv{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+}
+
+.priceGenerator{
+    width: 100%;
+    height: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.priceGenerator > *{
+    height: 50px;
+    border: 1px solid red;
+}
+
+.border-price{
+    border: 1px solid #c9c6c6;
+    width: 80%;
+}
+
+.date{
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    border-bottom: none;
+    display: flex;
+    flex-direction: row;
+}
+
+.totalPrice{
+    height: 20%;
+    /* border: 1px solid red; */
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+}
+
+
+.totalPrice div{
+    font-weight: bold;
+    display: flex;
+    width: 30%;
+}
+
+
+.totalPrice div:first{
+    justify-content: left;
+
+}
+.totalPrice div:nth-child(2){
+    justify-content: right;
+
+}
+.firstDay,.finalDay{
+    width: 50%;
+}
+.firstDay{
+    border-right: 1px solid #c9c6c6;
+}
+
+.selectorTitle{
+  display: flex;
+  justify-content: start;
+  font-size: 0.7em;
+  font-weight: bold;
+}
+
+.selectorTitle p{
+    text-align: start;
+    margin-left: 4%;
+    margin-top: 2%;
+    width: 100%;
+}
+
+.separator-date {
+    border-top: 1px solid #cecece;
+    width: 90%;
+}
+
+
+.fc-day{
+    cursor: pointer;
+}

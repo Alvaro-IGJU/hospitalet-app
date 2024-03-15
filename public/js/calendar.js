@@ -1,29 +1,151 @@
-document.addEventListener('DOMContentLoaded', function() {
-    var calendarEl = document.getElementById('calendar');
-  
-    var calendar = new FullCalendar.Calendar(calendarEl, {
-      timeZone: 'UTC',
-      initialView: 'dayGridMonth',
-      editable: true,
-      selectable: true,
-      locale: 'es',
-      firstDay: 1,
-      dateClick: function(info) {
+let mes_actual = (new Date()).getMonth();
+let operacion = "today";
+let canExecute = true;
 
-        var dayOfWeek = info.date.getDay();
-        
+function generateEvents(info, successCallback, failureCallback) {
+  if (canExecute) {
+    if (operacion == "next") {
+      mes_actual++;
+    } else if (operacion == "prev") {
+      mes_actual--;
+    } else if (operacion == "today") {
+      mes_actual = (new Date()).getMonth();
+    }
 
-        var startDate = new Date(info.date);
-        startDate.setDate(startDate.getDate() + (6 - dayOfWeek) + (dayOfWeek === 6 ? 7 : 0));
-  
-        var endDate = new Date(startDate);
-        endDate.setDate(endDate.getDate() + 8);
-  
+    if (mes_actual > 11) {
+      mes_actual = 0;
+    } else if (mes_actual < 0) {
+      mes_actual = 11;
+    }
+    var events = [];
+    var currentDate = new Date();
+    currentDate.setMonth(mes_actual);
+    currentDate.setDate(1);
+
+    let month = mes_actual;
+    while (currentDate.getMonth() === month) {
+      for (var i = 0; i < bookings.length; i++) {
+        var bookingStartDate = new Date(bookings[i].check_in);
+        var bookingEndDate = new Date(bookings[i].check_out);
+
+        if (currentDate >= bookingStartDate && currentDate <= bookingEndDate) {
+
+          events.push({
+            title: "Reservado",
+            start: bookingStartDate,
+            end: new Date(bookingEndDate),
+            backgroundColor: "#FF6666",
+          });
+          currentDate.setDate(currentDate.getDate() + 6);
+
+          break;
+        }
+      }
+      currentDate.setDate(currentDate.getDate() + 1);
+    }
+    canExecute = false;
+    successCallback(events);
+  }
+}
+
+document.addEventListener("DOMContentLoaded", function () {
+  var calendarEl = document.getElementById("calendar");
+  console.log(bookings);
+
+  var calendar = new FullCalendar.Calendar(calendarEl, {
+    timeZone: "UTC",
+    initialView: "dayGridMonth",
+    fixedWeekCount: false,
+    editable: false,
+    selectable: true,
+    locale: "es",
+    firstDay: 1,
+    selectConstraint: {
+      start: "00:00",
+      end: "23:59",
+      dow: [0, 1, 2, 3, 4, 5, 6],
+    },
+    dateClick: function (info) {
+      var startDate = new Date(info.date);
+      var dayOfWeek = startDate.getDay();
+
+      if (startDate.getDay() != 6) {
+        startDate.setDate(startDate.getDate() - dayOfWeek - 1);
+      }
+      var endDate = new Date(startDate);
+      endDate.setDate(endDate.getDate() + 7);
+      let canBook = true;
+      //------------------------------------------------
+      for (var i = 0; i < bookings.length; i++) {
+        var bookingStartDate = new Date(bookings[i].check_in);
+        var bookingEndDate = new Date(bookings[i].check_out);
+        if (startDate >= bookingStartDate && endDate <= bookingEndDate) {
+          canBook = false;
+
+          break;
+        }
+      }
+
+      //------------------------------------------------
+ 
+      if (canBook) {
         calendar.select(startDate, endDate);
-        alert(startDate + endDate);
-      },
-    });
-  
-    calendar.render();
+        document.querySelectorAll('.fc-highlight').forEach(function (el) {
+          el.style.backgroundColor = "rgba(210, 255, 150,.3)";
+        });
+      } else {
+        calendar.select(startDate, endDate);
+
+        document.querySelectorAll('.fc-highlight').forEach(function (el) {
+          el.style.backgroundColor = "rgba(255, 110, 94,.3)";
+        });
+
+      }
+
+    },
+    events: generateEvents,
+  });
+
+  calendar.render();
+
+  var nextButton = document.getElementsByClassName("fc-next-button")[0];
+  var previousButton = document.getElementsByClassName("fc-prev-button")[0];
+  var todayButton = document.getElementsByClassName("fc-today-button")[0];
+
+  nextButton.addEventListener("click", function () {
+    canExecute = true;
+    operacion = "next";
+    calendar.refetchEvents(); // Esto recargará los eventos del calendario
+  });
+
+  previousButton.addEventListener("click", function () {
+    canExecute = true;
+    operacion = "prev";
+    calendar.refetchEvents(); // Esto recargará los eventos del calendario
+  });
+
+  todayButton.addEventListener("click", function () {
+    canExecute = true;
+    operacion = "today";
+    calendar.refetchEvents(); // Esto recargará los eventos del calendario
+  });
 });
 
+
+window.addEventListener('scroll', function () {
+  var element = document.getElementById("calendar");
+  var distanceFromTop = element.getBoundingClientRect().top;
+  if (distanceFromTop <= 100) {
+    element.classList.add('sticky');
+  } else {
+    element.classList.remove('sticky');
+  }
+
+  var dateSelector = document.getElementById("dateSelector");
+  var distanceFromTop = dateSelector.getBoundingClientRect().top;
+  if (distanceFromTop <= 650) {
+    dateSelector.classList.add('sticky');
+  } else {
+    dateSelector.classList.remove('sticky');
+  }
+});

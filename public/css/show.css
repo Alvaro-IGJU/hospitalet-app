@@ -360,3 +360,14 @@ iframe{
 .fc-day{
     cursor: pointer;
 }
+
+#googleMaps{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-top: 0;
+}
+
+#googleMaps iframe{
+    margin-top: 0;
+}

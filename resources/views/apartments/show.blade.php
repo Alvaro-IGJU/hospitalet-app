@@ -485,6 +485,10 @@
 
         </div>
     </section>
+        <section id="googleMaps">
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d12057.588654651208!2d0.8369571726501279!3d40.92896200360809!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x12a115c7152cc26f%3A0x7997ac69c89313b3!2sCalafat%2C%20Tarragona!5e0!3m2!1ses!2ses!4v1709579150804!5m2!1ses!2ses" width="1600" height="600" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+
+        </section>
     <div class="separator"></div>
     <section class="rules">
         <h4>Qué debes saber</h4>
@@ -530,7 +534,6 @@
                 </div>
             </div>
         </div>
-        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d12057.588654651208!2d0.8369571726501279!3d40.92896200360809!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x12a115c7152cc26f%3A0x7997ac69c89313b3!2sCalafat%2C%20Tarragona!5e0!3m2!1ses!2ses!4v1709579150804!5m2!1ses!2ses" width="1600" height="600" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
     </section>
 
 

@@ -195,6 +195,10 @@
     /* Cambia el color según tus preferencias */
 }
 
+iframe{
+    margin-top: 300px;
+    padding: 100px;
+}
 /* Dispositivos muy pequeños (teléfonos móviles en modo retrato, menos de 480px) */
 @media (max-width: 480px) {
     /* Estilos */

@@ -63,6 +63,7 @@ header {
     align-items: center;
     box-shadow: 3px 3px 10px #c9c6c6;
     border-bottom: 5px solid #92dccd;
+    z-index: 3;
 }
 
 header nav {

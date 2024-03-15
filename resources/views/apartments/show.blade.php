@@ -52,7 +52,7 @@
         @endforeach
         </div>
     </section>
-    <section class="house-specs">
+    <section id="house-specs" class="house-specs">
         <div class="specs-container">
             <h4>Apartamento residencial en Calafat, España
             </h4>
@@ -453,8 +453,8 @@
         <div id="datePickDiv">
             <div id='calendar'></div>
             <div id="dateSelector">
-                <div>
-                    <h3 id="price"></h3>noche
+                <div id="priceNight">
+                    <b >114€</b> noche
                 </div>
                 <div class="priceGenerator">
                     <div class="border-price date">

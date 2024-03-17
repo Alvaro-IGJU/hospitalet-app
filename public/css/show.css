@@ -91,7 +91,6 @@
     flex-wrap: wrap;
     justify-content: center;
     height: fit-content;
-    border: 1px solid red;
 }
 
 .specs-container {
@@ -288,10 +287,10 @@ iframe{
     justify-content: center;
     align-items: center;
 }
-.priceGenerator > *{
+/* .priceGenerator > *{
     height: 50px;
     border: 1px solid red;
-}
+} */
 
 .border-price{
     border: 1px solid #c9c6c6;
@@ -305,7 +304,9 @@ iframe{
     display: flex;
     flex-direction: row;
 }
-
+.date > *, .people{
+    height: 50px;
+}
 .totalPrice{
     height: 20%;
     /* border: 1px solid red; */
@@ -344,12 +345,14 @@ iframe{
   justify-content: start;
   font-size: 0.7em;
   font-weight: bold;
+  padding: 0;
 }
 
 .selectorTitle p{
     text-align: start;
     margin-left: 4%;
     margin-top: 2%;
+    margin-bottom: 0;
     width: 100%;
 }
 
@@ -371,7 +374,7 @@ iframe{
 }
 
 #googleMaps iframe{
-    margin-top: 0;
+    margin-top: 5%;
 }
 
 #priceNight{
@@ -389,4 +392,67 @@ iframe{
 
 .date>*:hover,.people:hover{
     background-color: #e9e9e9;
+}
+
+#firstDay,#finalDay{
+    display: flex;
+    justify-content: start;
+    margin-left: 5%;
+    /* align-items: center; */
+}
+
+/* .datesOptions{
+
+    height: 0px;
+    width: 80%;
+    border: 1px solid #e9e9e900;
+    position: absolute;
+}
+
+.optionDate{
+    height: 10px;
+    width: 100%;
+    border: 1px solid blue;
+} */
+
+
+.datesOptions {
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 287px;
+    /* box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2); */
+    /* padding-bottom: 400px; */
+    /* padding: 12px 16px; */
+    z-index: 1;
+    top: 120px; 
+    flex-direction: column;
+    background-color: rgba(180, 49, 49, 0);
+
+}
+
+.optionDay{
+    width: 100%;
+    height: 40px;
+    border: 1px solid #c9c6c6;
+    border-top: none;
+    background-color: white;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+   
+}
+.optionDay:hover{
+    cursor: pointer;
+    background-color: #e9e9e9;
+}
+.optionDay > div{
+    width: 50%;
+    text-align: center;
+}
+.optionDay:last-child{
+   border-bottom-left-radius: 10px;
+   border-bottom-right-radius: 10px;
+}
+.optionDay > div:first-child{
+    border-right: 1px solid #e2e1e1;
 }

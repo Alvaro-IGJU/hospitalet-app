@@ -1,7 +1,6 @@
 let mes_actual = (new Date()).getMonth();
 let operacion = "today";
 let canExecute = true;
-
 function generateEvents(info, successCallback, failureCallback) {
   if (canExecute) {
     if (operacion == "next") {
@@ -50,7 +49,6 @@ function generateEvents(info, successCallback, failureCallback) {
 
 document.addEventListener("DOMContentLoaded", function () {
   var calendarEl = document.getElementById("calendar");
-  console.log(bookings);
 
   var calendar = new FullCalendar.Calendar(calendarEl, {
     timeZone: "UTC",
@@ -75,24 +73,38 @@ document.addEventListener("DOMContentLoaded", function () {
       var endDate = new Date(startDate);
       endDate.setDate(endDate.getDate() + 7);
       let canBook = true;
+      let nightPrice = 0;
       //------------------------------------------------
       for (var i = 0; i < bookings.length; i++) {
         var bookingStartDate = new Date(bookings[i].check_in);
         var bookingEndDate = new Date(bookings[i].check_out);
         if (startDate >= bookingStartDate && endDate <= bookingEndDate) {
           canBook = false;
-
           break;
         }
+
+        // }
       }
 
       //------------------------------------------------
- 
+
       if (canBook) {
+        for (var i = 0; i < freeWeeks.length; i++) {
+          var bookingStartDate = new Date(freeWeeks[i].check_in);
+          var bookingEndDate = new Date(freeWeeks[i].check_out);
+          if (startDate >= bookingStartDate && endDate <= bookingEndDate) {
+            nightPrice = freeWeeks[i].price + "€";
+            break;
+          }
+        }
+
         calendar.select(startDate, endDate);
         document.querySelectorAll('.fc-highlight').forEach(function (el) {
           el.style.backgroundColor = "rgba(210, 255, 150,.3)";
         });
+        document.getElementById("firstDay").innerHTML = startDate.getDate() + "-" + startDate.getMonth() + "-" + startDate.getFullYear();
+        document.getElementById("finalDay").innerHTML = endDate.getDate() + "-" + endDate.getMonth() + "-" + endDate.getFullYear();
+        document.getElementById("weekNightPrice").innerHTML = nightPrice;
       } else {
         calendar.select(startDate, endDate);
 
@@ -148,4 +160,68 @@ window.addEventListener('scroll', function () {
   } else {
     dateSelector.classList.remove('sticky');
   }
+});
+
+
+// let dateDiv = document.getElementsByClassName("date")[0];
+// let optionsDate = document.getElementById("datesOptions");
+// let peopleDiv = document.getElementsByClassName("people")[0]
+
+// console.log(dateDiv)
+// dateDiv.addEventListener("mouseover", (e) => {
+//   let date = document.createElement("div");
+//   date.classList.add("optionDate")
+//   optionsDate.appendChild(date)
+//   peopleDiv.style.display = "none";
+// })
+document.addEventListener('DOMContentLoaded', function () {
+  var dateElement = document.querySelector('.border-price.date');
+  var datesOptions = document.getElementById('datesOptions');
+  var canShowOptions = true;
+
+  dateElement.addEventListener('click', function (event) {
+    if (canShowOptions) {
+      datesOptions.style.display = 'flex';
+      datesOptions.innerHTML = ""; // Limpiar el contenido anterior
+      for (var i = 0; i < freeWeeks.length; i++) {
+        var bookingStartDate = new Date(freeWeeks[i].check_in);
+        var bookingEndDate = new Date(freeWeeks[i].check_out);
+        let option = document.createElement("div");
+        option.classList.add("optionDay");
+
+        let optionFirstDay = document.createElement("div");
+        optionFirstDay.innerHTML = bookingStartDate.getDate() + "-" + (bookingStartDate.getMonth() + 1) + "-" + bookingStartDate.getFullYear(); // Corregir el mes
+
+        let optionEndDay = document.createElement("div");
+        optionEndDay.innerHTML = bookingEndDate.getDate() + "-" + (bookingEndDate.getMonth() + 1) + "-" + bookingEndDate.getFullYear(); // Corregir el mes
+
+        option.appendChild(optionFirstDay)
+        option.appendChild(optionEndDay)
+        datesOptions.appendChild(option)
+        option.addEventListener("click",()=>{
+          document.getElementById("firstDay").innerHTML =  optionFirstDay.innerHTML;
+          document.getElementById("finalDay").innerHTML =  optionEndDay.innerHTML;
+          datesOptions.style.display = 'none';
+          datesOptions.innerHTML = ""; // Limpiar el contenido
+          canShowOptions = true;
+        })
+      }
+      canShowOptions = false;
+    }
+    event.stopPropagation(); // Evitar la propagación del evento de clic para que no se oculte inmediatamente después de mostrarse
+  });
+
+  document.addEventListener('click', function (event) {
+    // Si se hace clic fuera del desplegable, ocultarlo
+    if (!datesOptions.contains(event.target) && event.target !== dateElement) {
+      datesOptions.style.display = 'none';
+      datesOptions.innerHTML = ""; // Limpiar el contenido
+      canShowOptions = true;
+    }
+  });
+
+  datesOptions.addEventListener('click', function (event) {
+    // Detener la propagación del evento de clic para evitar que se oculte cuando se hace clic dentro del desplegable
+    event.stopPropagation();
+  });
 });

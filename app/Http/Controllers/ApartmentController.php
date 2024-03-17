@@ -14,15 +14,15 @@ class ApartmentController extends Controller
         if (!$apartment) {
             abort(404, 'Apartamento no encontrado');
         }
-    
+
         // Obtener solo los bookings donde la columna "booked" sea igual a 1
         $bookings = $apartment->bookings()->where('booked', 1)->get();
-    
+        $freeWeeks =  $apartment->bookings()->where('booked', 0)->get();
         $photos = $this->getApartmentPhotos($id);
-    
-        return view('apartments.show', ['apartment' => $apartment, 'bookings' => $bookings, 'photos' => $photos]);
+
+        return view('apartments.show', ['apartment' => $apartment, 'bookings' => $bookings,'freeWeeks' => $freeWeeks, 'photos' => $photos]);
     }
-    
+
 
 
     public function getApartmentPhotos($id): array

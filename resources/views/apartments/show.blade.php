@@ -22,6 +22,7 @@
     <script src='https://cdn.jsdelivr.net/npm/fullcalendar@6.1.11/index.global.min.js'></script>
     <script>
         var bookings = @json($bookings);
+        var freeWeeks = @json($freeWeeks);
     </script>
 
 </head>
@@ -454,23 +455,25 @@
             <div id='calendar'></div>
             <div id="dateSelector">
                 <div id="priceNight">
-                    <b >114€</b> noche
+                    <b id="weekNightPrice">114€</b> noche
                 </div>
-                <div class="priceGenerator">
+                <div class="priceGenerator" id="priceGenerator">
                     <div class="border-price date">
                         <div class="firstDay">
                             <div class="selectorTitle"><p>LLEGADA</p></div>
-                            <div></div>
+                            <div id="firstDay"></div>
                         </div>
                         <div class="finalDay">
                             <div class="selectorTitle"><p>SALIDA</p></div>
-                            <div></div>
+                            <div  id="finalDay"></div>
                         </div>
                     </div>
+                    <div id="datesOptions" class="datesOptions" style="display: none;"></div>
                     <div class="border-price people">
                         <div class="selectorTitle"><p>HUÉSPEDES</p></div>
                         <div></div>
                     </div>
+                  
 
                 </div>
                 <div class="separator-date">

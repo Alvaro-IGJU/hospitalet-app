@@ -452,6 +452,9 @@
 
         </div>
         <div id="datePickDiv">
+            <div id="fixedCalendar">
+
+ 
             <div id='calendar'></div>
             <div id="dateSelector">
                 <div id="priceNight">
@@ -478,11 +481,11 @@
                 </div>
                 <div class="totalPrice">
                     <div>Total</div>
-                    <div id="totalPrice">32€</div>
+                    <div id="totalPrice"></div>
                 </div>
 
             </div>
-
+        </div>
         </div>
     </section>
         <section id="googleMaps">

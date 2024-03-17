@@ -57,7 +57,7 @@ document.addEventListener("DOMContentLoaded", function () {
     initialView: "dayGridMonth",
     fixedWeekCount: false,
     editable: false,
-    selectable: true,
+    selectable: false,
     locale: "es",
     firstDay: 1,
     selectConstraint: {

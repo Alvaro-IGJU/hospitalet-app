@@ -1,6 +1,8 @@
 let mes_actual = (new Date()).getMonth();
 let operacion = "today";
 let canExecute = true;
+let nocheWord = document.createElement("p");
+nocheWord.textContent = "   noche"
 function generateEvents(info, successCallback, failureCallback) {
   if (canExecute) {
     if (operacion == "next") {
@@ -73,8 +75,8 @@ document.addEventListener("DOMContentLoaded", function () {
       var endDate = new Date(startDate);
       endDate.setDate(endDate.getDate() + 7);
       let canBook = true;
-      let nightPrice = 0;
-      let totalPrice = 0;
+      let nightPrice = "Semana no disponible";
+      let totalPrice = "";
       //------------------------------------------------
       for (var i = 0; i < bookings.length; i++) {
         var bookingStartDate = new Date(bookings[i].check_in);
@@ -105,11 +107,20 @@ document.addEventListener("DOMContentLoaded", function () {
         document.querySelectorAll('.fc-highlight').forEach(function (el) {
           el.style.backgroundColor = "rgba(210, 255, 150,.3)";
         });
-        console.log(mes_actual)
-        console.log(totalPrice)
+
         document.getElementById("firstDay").innerHTML = startDate.getDate() + "-" + (mes_actual + 1) + "-" + startDate.getFullYear();
         document.getElementById("finalDay").innerHTML = endDate.getDate() + "-" + (mes_actual + 1) + "-" + endDate.getFullYear();
         document.getElementById("weekNightPrice").innerHTML = nightPrice;
+
+        if (nightPrice !== "Semana no disponible") {
+          document.getElementById("priceNight").appendChild(nocheWord);
+        } else {
+          nocheWord.remove();
+          document.querySelectorAll('.fc-highlight').forEach(function (el) {
+            el.style.backgroundColor = "rgba(255, 110, 94,.3)";
+          });
+        }
+
         document.getElementById("totalPrice").innerHTML = totalPrice;
       } else {
         calendar.select(startDate, endDate);
@@ -117,7 +128,14 @@ document.addEventListener("DOMContentLoaded", function () {
         document.querySelectorAll('.fc-highlight').forEach(function (el) {
           el.style.backgroundColor = "rgba(255, 110, 94,.3)";
         });
+        nocheWord.remove();
 
+        nightPrice = "Semana ya reservada";
+        document.getElementById("firstDay").innerHTML = startDate.getDate() + "-" + (mes_actual + 1) + "-" + startDate.getFullYear();
+        document.getElementById("finalDay").innerHTML = endDate.getDate() + "-" + (mes_actual + 1) + "-" + endDate.getFullYear();
+        document.getElementById("weekNightPrice").innerHTML = nightPrice;
+
+       
       }
 
     },

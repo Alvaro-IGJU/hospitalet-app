@@ -458,7 +458,7 @@
             <div id='calendar'></div>
             <div id="dateSelector">
                 <div id="priceNight">
-                    <b id="weekNightPrice">114€</b> noche
+                    <b id="weekNightPrice"></b> 
                 </div>
                 <div class="priceGenerator" id="priceGenerator">
                     <div class="border-price date">

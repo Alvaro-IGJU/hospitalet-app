@@ -144,7 +144,7 @@
     display: none;
 }
 
-#fixedCalendar{
+#fixedCalendar {
     height: max-content;
     /* border: 1px solid red; */
     position: sticky;
@@ -202,11 +202,13 @@
     /* Cambia el color según tus preferencias */
 }
 
-iframe{
+iframe {
     margin-top: 300px;
     padding: 100px;
     padding-top: 0;
+    border-radius: 10px;
 }
+
 /* Dispositivos muy pequeños (teléfonos móviles en modo retrato, menos de 480px) */
 @media (max-width: 480px) {
     /* Estilos */
@@ -280,13 +282,13 @@ iframe{
 }
 
 
-#datePickDiv{
+#datePickDiv {
     display: flex;
     flex-direction: column;
     align-items: center;
 }
 
-.priceGenerator{
+.priceGenerator {
     width: 100%;
     height: 50%;
     display: flex;
@@ -294,17 +296,18 @@ iframe{
     justify-content: center;
     align-items: center;
 }
+
 /* .priceGenerator > *{
     height: 50px;
     border: 1px solid red;
 } */
 
-.border-price{
+.border-price {
     border: 1px solid #c9c6c6;
     width: 80%;
 }
 
-.date{
+.date {
     border-top-left-radius: 10px;
     border-top-right-radius: 10px;
     border-bottom: none;
@@ -315,10 +318,12 @@ iframe{
 
 
 }
-.date > *{
+
+.date>* {
     height: 60px;
 }
-.totalPrice{
+
+.totalPrice {
     height: 20%;
     /* border: 1px solid red; */
     width: 100%;
@@ -329,37 +334,41 @@ iframe{
 }
 
 
-.totalPrice div{
+.totalPrice div {
     font-weight: bold;
     display: flex;
     width: 30%;
 }
 
 
-.totalPrice div:first{
+.totalPrice div:first {
     justify-content: left;
 
 }
-.totalPrice div:nth-child(2){
+
+.totalPrice div:nth-child(2) {
     justify-content: right;
 
 }
-.firstDay,.finalDay{
+
+.firstDay,
+.finalDay {
     width: 50%;
 }
-.firstDay{
+
+.firstDay {
     border-right: 1px solid #c9c6c6;
 }
 
-.selectorTitle{
-  display: flex;
-  justify-content: start;
-  font-size: 0.7em;
-  font-weight: bold;
-  padding: 0;
+.selectorTitle {
+    display: flex;
+    justify-content: start;
+    font-size: 0.7em;
+    font-weight: bold;
+    padding: 0;
 }
 
-.selectorTitle p{
+.selectorTitle p {
     text-align: start;
     margin-left: 4%;
     margin-top: 2%;
@@ -373,39 +382,51 @@ iframe{
 }
 
 
-.fc-day{
+.fc-day {
     cursor: pointer;
 }
 
-#googleMaps{
+#googleMaps {
     display: flex;
     justify-content: center;
     align-items: center;
     padding-top: 0;
 }
 
-#googleMaps iframe{
+#googleMaps iframe {
     margin-top: 5%;
 }
 
-#priceNight{
+#priceNight {
     text-align: left;
     width: 100%;
     margin-left: 21%;
     margin-top: 5%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
 }
-#priceNight > * {
+
+#priceNight>b {
     font-size: 1.3em;
 }
-.border-price{
+
+#priceNight>p {
+    margin-bottom: 0;
+    margin-left: 2%;
+}
+
+.border-price {
     cursor: pointer;
 }
 
-.date>*:hover,.people:hover{
+.date>*:hover,
+.people:hover {
     background-color: #e9e9e9;
 }
 
-#firstDay,#finalDay{
+#firstDay,
+#finalDay {
     display: flex;
     justify-content: start;
     margin-left: 5%;
@@ -435,7 +456,7 @@ iframe{
     /* padding-bottom: 400px; */
     /* padding: 12px 16px; */
     z-index: 1;
-    top: 650px; 
+    top: 650px;
     flex-direction: column;
     background-color: rgba(180, 49, 49, 0);
     overflow: auto;
@@ -444,7 +465,7 @@ iframe{
 
 }
 
-.optionDay{
+.optionDay {
     width: 100%;
     border: 1px solid #c9c6c6;
     border-top: none;
@@ -452,27 +473,32 @@ iframe{
     display: flex;
     flex-direction: row;
     justify-content: space-around;
-   
+
 }
-.optionDay:hover{
+
+.optionDay:hover {
     cursor: pointer;
     background-color: #e9e9e9;
 }
-.optionDay > div{
+
+.optionDay>div {
     width: 50%;
     text-align: center;
 }
-.optionDay:last-child{
-   border-bottom-left-radius: 10px;
-   border-bottom-right-radius: 10px;
+
+.optionDay:last-child {
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
 
 }
-.optionDay > div:first-child{
+
+.optionDay>div:first-child {
     border-right: 1px solid #e2e1e1;
     width: 44%;
 
 }
-.optionDay > div:first-child{
+
+.optionDay>div:first-child {
     border-right: 1px solid #e2e1e1;
     width: 56%;
 
@@ -480,11 +506,12 @@ iframe{
 
 @keyframes desplegarMenu {
     from {
-      opacity: 0;
-      transform: translateY(-10px);
+        opacity: 0;
+        transform: translateY(-10px);
     }
+
     to {
-      opacity: 1;
-      transform: translateY(0);
+        opacity: 1;
+        transform: translateY(0);
     }
 }

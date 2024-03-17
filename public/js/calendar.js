@@ -74,6 +74,7 @@ document.addEventListener("DOMContentLoaded", function () {
       endDate.setDate(endDate.getDate() + 7);
       let canBook = true;
       let nightPrice = 0;
+      let totalPrice = 0;
       //------------------------------------------------
       for (var i = 0; i < bookings.length; i++) {
         var bookingStartDate = new Date(bookings[i].check_in);
@@ -94,6 +95,8 @@ document.addEventListener("DOMContentLoaded", function () {
           var bookingEndDate = new Date(freeWeeks[i].check_out);
           if (startDate >= bookingStartDate && endDate <= bookingEndDate) {
             nightPrice = freeWeeks[i].price + "€";
+            totalPrice = (freeWeeks[i].price * 7) + "€";
+
             break;
           }
         }
@@ -102,9 +105,12 @@ document.addEventListener("DOMContentLoaded", function () {
         document.querySelectorAll('.fc-highlight').forEach(function (el) {
           el.style.backgroundColor = "rgba(210, 255, 150,.3)";
         });
-        document.getElementById("firstDay").innerHTML = startDate.getDate() + "-" + startDate.getMonth() + "-" + startDate.getFullYear();
-        document.getElementById("finalDay").innerHTML = endDate.getDate() + "-" + endDate.getMonth() + "-" + endDate.getFullYear();
+        console.log(mes_actual)
+        console.log(totalPrice)
+        document.getElementById("firstDay").innerHTML = startDate.getDate() + "-" + (mes_actual + 1) + "-" + startDate.getFullYear();
+        document.getElementById("finalDay").innerHTML = endDate.getDate() + "-" + (mes_actual + 1) + "-" + endDate.getFullYear();
         document.getElementById("weekNightPrice").innerHTML = nightPrice;
+        document.getElementById("totalPrice").innerHTML = totalPrice;
       } else {
         calendar.select(startDate, endDate);
 
@@ -163,17 +169,6 @@ window.addEventListener('scroll', function () {
 });
 
 
-// let dateDiv = document.getElementsByClassName("date")[0];
-// let optionsDate = document.getElementById("datesOptions");
-// let peopleDiv = document.getElementsByClassName("people")[0]
-
-// console.log(dateDiv)
-// dateDiv.addEventListener("mouseover", (e) => {
-//   let date = document.createElement("div");
-//   date.classList.add("optionDate")
-//   optionsDate.appendChild(date)
-//   peopleDiv.style.display = "none";
-// })
 document.addEventListener('DOMContentLoaded', function () {
   var dateElement = document.querySelector('.border-price.date');
   var datesOptions = document.getElementById('datesOptions');
@@ -186,9 +181,13 @@ document.addEventListener('DOMContentLoaded', function () {
       for (var i = 0; i < freeWeeks.length; i++) {
         var bookingStartDate = new Date(freeWeeks[i].check_in);
         var bookingEndDate = new Date(freeWeeks[i].check_out);
+        var price = freeWeeks[i].price; // Asegúrate de que price esté definido aquí
+        let totalPrice = freeWeeks[i].price * 7;
+
+        console.log(freeWeeks[i].price)
         let option = document.createElement("div");
         option.classList.add("optionDay");
-
+        option.price = price;
         let optionFirstDay = document.createElement("div");
         optionFirstDay.innerHTML = bookingStartDate.getDate() + "-" + (bookingStartDate.getMonth() + 1) + "-" + bookingStartDate.getFullYear(); // Corregir el mes
 
@@ -198,14 +197,19 @@ document.addEventListener('DOMContentLoaded', function () {
         option.appendChild(optionFirstDay)
         option.appendChild(optionEndDay)
         datesOptions.appendChild(option)
-        option.addEventListener("click",()=>{
-          document.getElementById("firstDay").innerHTML =  optionFirstDay.innerHTML;
-          document.getElementById("finalDay").innerHTML =  optionEndDay.innerHTML;
+
+        option.addEventListener("click", () => {
+          document.getElementById("weekNightPrice").innerHTML = option.price + "€";
+          document.getElementById("totalPrice").innerHTML = totalPrice + "€";
+
+          document.getElementById("firstDay").innerHTML = optionFirstDay.innerHTML;
+          document.getElementById("finalDay").innerHTML = optionEndDay.innerHTML;
           datesOptions.style.display = 'none';
           datesOptions.innerHTML = ""; // Limpiar el contenido
           canShowOptions = true;
-        })
+        });
       }
+
       canShowOptions = false;
     }
     event.stopPropagation(); // Evitar la propagación del evento de clic para que no se oculte inmediatamente después de mostrarse

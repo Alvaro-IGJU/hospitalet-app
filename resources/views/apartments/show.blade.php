@@ -469,10 +469,7 @@
                         </div>
                     </div>
                     <div id="datesOptions" class="datesOptions" style="display: none;"></div>
-                    <div class="border-price people">
-                        <div class="selectorTitle"><p>HUÉSPEDES</p></div>
-                        <div></div>
-                    </div>
+                  
                   
 
                 </div>
@@ -481,7 +478,7 @@
                 </div>
                 <div class="totalPrice">
                     <div>Total</div>
-                    <div>32€</div>
+                    <div id="totalPrice">32€</div>
                 </div>
 
             </div>

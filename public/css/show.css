@@ -433,11 +433,12 @@ iframe{
     background-color: rgba(180, 49, 49, 0);
     overflow: auto;
     height: 160px;
+    animation: desplegarMenu 0.3s ease-in-out forwards;
+
 }
 
 .optionDay{
     width: 100%;
-    height: 40px;
     border: 1px solid #c9c6c6;
     border-top: none;
     background-color: white;
@@ -468,4 +469,15 @@ iframe{
     border-right: 1px solid #e2e1e1;
     width: 56%;
 
+}
+
+@keyframes desplegarMenu {
+    from {
+      opacity: 0;
+      transform: translateY(-10px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
 }

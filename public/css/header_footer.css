@@ -8,46 +8,52 @@
     font-weight: bold;
 }
 
-.icon:hover{
+.icon:hover {
     text-decoration: none;
 
 }
 
-footer{
+footer {
     position: absolute;
     bottom: 0;
     width: 100%;
     display: flex;
     align-items: center;
     background-color: #4a73b1;
-    height: 61px;
+    height: 75px;
 }
 
-footer nav{
-    width: 100%;
+footer nav {
+    width: 50%;
     display: flex;
     flex-wrap: wrap;
+    justify-content: right;
 }
 
-footer ul{
-    width: 100%;    
+footer ul {
+    width: 70%;
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
+    margin-bottom: 0;
+    padding-right: 0;
 }
 
-footer li{
+footer li {
     margin-left: 10%;
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
+    flex-direction: row;
 }
-footer a{
-   
+
+footer a {
+
     color: white;
     text-decoration: none;
 }
-footer a:hover{
+
+footer a:hover {
     text-decoration: underline;
 }
 
@@ -87,20 +93,47 @@ header ul {
     list-style: none;
 }
 
-header li{
+header li {
     margin-left: 6%;
     display: flex;
     align-items: center;
 }
-header a{
+
+header a {
     color: white;
     text-decoration: none;
     font-size: 1.4em;
 
 }
-header a:hover{
+
+header a:hover {
     text-decoration: underline;
 }
 
+#myFooter {
+    justify-content: space-between;
+}
 
-  
+#myFooter li {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    text-align: center;
+    justify-content: center;
+    width: 100%;
+}
+
+#myFooter li>a {
+    margin-left: 5%;
+}
+
+#myFooter p {
+    display: flex;
+    font-weight: bold;
+    margin-bottom: 0;
+    align-items: center;
+}
+
+#myFooter {
+    color: white;
+}

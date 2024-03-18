@@ -1,4 +1,4 @@
-<footer>
+<footer id="myFooter">
     <a class="icon" href="">CALAFAT</a>
     <nav>
         <ul class="">

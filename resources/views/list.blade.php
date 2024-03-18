@@ -1,10 +1,10 @@
 <section class="listHouses">
     <div class="presentation">
         <h2>¡Bienvenido a nuestra página web!</h2>
-        <p>Explora nuestros apartamentos en Tarragona.</p>
+        <p>Explora nuestros apartamentos en Calafat.</p>
     </div>
     <div class="list-houses">
-        <div class="card-house">
+        <a class="card-house" href="{{ url('apartments/2') }}">
             <img src="https://tripkay.com/destination-guides/wp-content/uploads/2017/03/Playa-de-Hospitalet-del-Infant-1620x1080.jpg.webp"
                 alt="">
             <h2>Hospitalet de l'Infant</h2>
@@ -25,7 +25,7 @@
                 <div><i class="fa-solid fa-fan"></i>Aire acondicionado</div>
 
             </div>
-        </div>
+        </a>
         <a class="card-house" href="{{ url('apartments/1') }}">
             <img src="{{ asset('uploads/1/Terraza.jpg') }}" alt="">
             <h2>Calafat</h2>

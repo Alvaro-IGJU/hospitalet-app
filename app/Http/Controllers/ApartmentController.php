@@ -19,8 +19,13 @@ class ApartmentController extends Controller
         $bookings = $apartment->bookings()->where('booked', 1)->get();
         $freeWeeks =  $apartment->bookings()->where('booked', 0)->get();
         $photos = $this->getApartmentPhotos($id);
-
-        return view('apartments.show', ['apartment' => $apartment, 'bookings' => $bookings,'freeWeeks' => $freeWeeks, 'photos' => $photos]);
+        $view = "";
+        if($id == 1){
+            $view = 'apartments.up';
+        }else{
+            $view = 'apartments.down';
+        }
+        return view($view, ['apartment' => $apartment, 'bookings' => $bookings,'freeWeeks' => $freeWeeks, 'photos' => $photos]);
     }
 
 

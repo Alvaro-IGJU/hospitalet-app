@@ -79,8 +79,7 @@ document.addEventListener('DOMContentLoaded', function () {
                     title: 'Formulario de reserva',
                     html:
                         `<div style="display: flex; flex-direction: column;">
-                        <label for="swal-input1"><b>ID: ${booking.id}</b></label>
-
+                            <label for="swal-input1"><b>ID: ${booking.id}</b></label>
                             <label for="swal-input1">Fecha de entrada:</label>
                             <input id="swal-input1" class="swal2-input" type="date" placeholder="Fecha de entrada" style="margin-bottom: 10px;" value="${booking.check_in}">
                             <label for="swal-input2">Fecha de salida:</label>
@@ -90,30 +89,57 @@ document.addEventListener('DOMContentLoaded', function () {
                         </div>
                         <div style="display: flex; flex-direction: row; justify-content: center;">
                             <div style="margin-right: 10px;">
-                                <input id="swal-input4" class="swal2-radio" type="radio" name="estado" ${booking.booked ? "checked" : ""} value="reservado">
+                                <input id="swal-input4" class="swal2-radio" type="radio" name="estado" ${booking.booked ? "checked" : ""} value="1">
                                 <label for="swal-input4">Reservado</label>
                             </div>
                             <div>
-                                <input id="swal-input5" class="swal2-radio" type="radio" name="estado" ${!booking.booked ? "checked" : ""} value="disponible">
+                                <input id="swal-input5" class="swal2-radio" type="radio" name="estado" ${!booking.booked ? "checked" : ""} value="0">
                                 <label for="swal-input5">Disponible</label>
                             </div>
                         </div>`,
+                    showCancelButton: true,
+                    showConfirmButton: true,
                     focusConfirm: false,
                     preConfirm: () => {
-                        return [
-                            document.getElementById('swal-input1').value,
-                            document.getElementById('swal-input2').value,
-                            document.getElementById('swal-input3').value,
-                            document.querySelector('input[name="estado"]:checked').value
-                        ];
+                        return {
+                            check_in: formatDate($('#swal-input1').val()),
+                            check_out: formatDate($('#swal-input2').val()),
+                            price: $('#swal-input3').val(),
+                            booked: $('input[name="estado"]:checked').val()
+                        };
                     }
                 }).then((result) => {
                     if (result.isConfirmed) {
-                        const [fechaEntrada, fechaSalida, precio, estado] = result.value;
+                        const data = result.value;
                         // Aquí puedes hacer lo que quieras con los valores ingresados
-                        console.log(`Fecha de entrada: ${fechaEntrada}, Fecha de salida: ${fechaSalida}, Precio: ${precio}, Estado: ${estado}`);
+
+                        // Realizar la llamada AJAX
+                        $.ajax({
+                            url: '/admin/bookings/' + booking.id,
+                            method: 'PUT',
+                            data: data,
+                            headers: {
+                                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content') // Include CSRF token
+                            },
+                            success: function (response) {
+                                console.log('Llamada AJAX exitosa:', response);
+                                // Mostrar un mensaje de éxito
+                                Swal.fire('¡Éxito!', 'La reserva se ha actualizar correctamente', 'success');
+                            },
+                            error: function (xhr, status, error) {
+                                console.error('Error en la llamada AJAX:', error);
+                                // Mostrar un mensaje de error
+                                Swal.fire('Error', 'Hubo un problema al actualizar la reserva', 'error');
+                            }
+                        });
+                    } else if (result.dismiss === Swal.DismissReason.cancel) {
+                        // El usuario ha cancelado, puedes mostrar un mensaje o realizar alguna acción
+                        console.log('El usuario ha cancelado la operación.');
                     }
                 });
+
+
+
 
 
 
@@ -124,3 +150,8 @@ document.addEventListener('DOMContentLoaded', function () {
     });
 
 })
+
+function formatDate(dateString) {
+    const parts = dateString.split('-');
+    return `${parts[0]}-${parts[1]}-${parts[2]}`;
+}

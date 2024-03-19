@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\ApartmentController;
+use App\Http\Controllers\BookingController;
 use App\Models\Apartment;
 use Illuminate\Support\Facades\Route;
 
@@ -26,4 +27,7 @@ Route::prefix('apartments')->group(function () {
 
 Route::prefix('admin')->group(function () {
     Route::get('{id?}', [AdminController::class, 'read'])->name('admin.read');
+    Route::put('/bookings/{id}', [BookingController::class,'update'])->name('bookings.update');
+
 });
+

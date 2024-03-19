@@ -7,5 +7,6 @@
             <li><a href="#">Contacto</a></li>
         </ul>
     </nav>
+    <meta name="csrf-token" content="{{ csrf_token() }}">
 
 </header>

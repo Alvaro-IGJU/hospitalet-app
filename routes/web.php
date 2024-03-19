@@ -26,8 +26,7 @@ Route::prefix('apartments')->group(function () {
 });
 
 Route::prefix('admin')->group(function () {
+    Route::get('bookings', [BookingController::class, 'getAll'])->name('bookings.getAll');
     Route::get('{id?}', [AdminController::class, 'read'])->name('admin.read');
     Route::put('/bookings/{id}', [BookingController::class,'update'])->name('bookings.update');
-
 });
-

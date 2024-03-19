@@ -8,6 +8,11 @@ use App\Models\Booking;
 class BookingController extends Controller
 {
   
+    public function getAll()
+    {
+        $bookings = Booking::all();
+        return response()->json($bookings);
+    }
 
     public function update(Request $request, $id)
     {
@@ -26,7 +31,6 @@ class BookingController extends Controller
         $booking->price = $request->input('price');
         $booking->booked = $request->input('booked');
         $booking->save();
-
 
         return $booking;
         // return redirect()->route('bookings.index')->with('success', 'Booking updated successfully');

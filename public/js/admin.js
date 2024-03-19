@@ -1,9 +1,18 @@
-console.log(bookings)
+$.ajax({
+    url: '/admin/bookings', // Ruta para obtener todos los bookings
+    method: 'GET',
+    success: function(response) {
+        // Aquí puedes manejar la respuesta, por ejemplo, mostrar los bookings en una tabla o hacer cualquier otra operación con ellos
+    },
+    error: function(xhr, status, error) {
+        // Manejar el error de la manera que prefieras, por ejemplo, mostrar un mensaje de error al usuario
+    }
+});
+
 
 document.addEventListener('DOMContentLoaded', function () {
     apartments.forEach(aparment => {
         let apartmentData = document.getElementById(aparment.id);
-        console.log(apartmentData)
 
         let table = apartmentData.querySelector('.apartment-table');
         let header = false;
@@ -122,8 +131,35 @@ document.addEventListener('DOMContentLoaded', function () {
                                 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content') // Include CSRF token
                             },
                             success: function (response) {
-                                console.log('Llamada AJAX exitosa:', response);
                                 // Mostrar un mensaje de éxito
+
+                                row.innerHTML = "";
+                                for (const key in response) {
+                                    if (Object.hasOwnProperty.call(response, key)) {
+                                        if (key != "created_at" && key != "updated_at" && key != "apartment_id") {
+                                            let element = response[key];
+                                            let attribute = document.createElement("div");
+                                            attribute.classList.add("booking-attribute")
+                                            if (key == "booked") {
+                                                element = (response[key]) ? "Reservado" : "Disponible";
+                                                if (response[key]) {
+                                                    console.log("OCUPADO",response[key])
+                                                    attribute.classList.add("booked");
+                                                } else {
+                                                    console.log("LIBRE",response[key])
+                                                
+                                                        
+                                                    attribute.classList.add("available")
+                                                }
+                                            } else if (key == "price") {
+                                                element = element + "€";
+                                            }
+                                            attribute.innerHTML = element;
+                                            row.appendChild(attribute);
+                                        }
+
+                                    }
+                                }
                                 Swal.fire('¡Éxito!', 'La reserva se ha actualizar correctamente', 'success');
                             },
                             error: function (xhr, status, error) {

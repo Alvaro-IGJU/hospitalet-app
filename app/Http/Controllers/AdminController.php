@@ -13,7 +13,7 @@ class AdminController extends Controller
     if ($id != null) {
         $apartment = Apartment::find($id);
         $apartments[] = $apartment;
-        $bookings = $apartment->bookings()->get();
+        $bookings[$apartment->id] = $apartment->bookings()->get();
 
         return view('admin.read', compact('apartments', 'bookings'));
 

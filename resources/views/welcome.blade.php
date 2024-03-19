@@ -20,7 +20,7 @@
     @include('header')
     @include('list')
     <div class="space"></div>
-    @include('footer')
+    {{-- @include('footer') --}}
 
 </body>
 

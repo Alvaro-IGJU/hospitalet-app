@@ -1,0 +1,69 @@
+.all-apartments-data{
+    width: 95%;
+    display: flex;
+    justify-content: space-around;
+    margin: auto;
+}
+.apartment-data{
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.booking{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+}
+
+.row{
+    width: 100%;
+    height: 40px;
+    border: 1px solid #4a73b1;
+    border-top: none;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+}
+
+.row > div{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.head-row{
+    color: white;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    background-color:#4a73b1 ;
+    font-weight: bold;
+}
+.head-row > div{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.row-hover:hover{
+    background-color: #dadada;
+    cursor: pointer;
+
+}
+.booking-attribute{
+    /* border: 1px solid green; */
+    width: 20%;
+
+}
+.apartment-table{
+    width: 90%;
+    /* border: 1px solid black; */
+    overflow: auto;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    height: fit-content;
+    margin-top: 5%;
+}

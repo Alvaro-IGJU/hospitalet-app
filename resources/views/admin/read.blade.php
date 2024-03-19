@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -25,12 +26,33 @@
     <script src='https://cdn.jsdelivr.net/npm/fullcalendar@6.1.11/index.global.min.js'></script>
     <script>
         var bookings = @json($bookings);
+        var apartments = @json($apartments);
     </script>
+    <link rel="stylesheet" href="{{ url('css/admin.css') }}" type="text/css">
+
 </head>
+
 <body>
     @include('header')
+    <section class="all-apartments-data">
+        @foreach ($apartments as $apartment)
+            <div id="{{$apartment->id}}" class="apartment-data">
+                <h2 class="title-house">{{ $apartment->name }}</h2>
+                <div class="apartment-table">
+                
+                </div>
+            </div>
+        @endforeach
+    </section>
+    <div id="bottomSpace">
+
+    </div>
     @include('footer')
-    <script src="{{ asset('js/calendar.js') }}"></script>
+
+
+    <script src="{{ asset('js/admin.js') }}"></script>
+    {{-- <script src="{{ asset('js/calendarAdmin.js') }}"></script> --}}
 
 </body>
+
 </html>

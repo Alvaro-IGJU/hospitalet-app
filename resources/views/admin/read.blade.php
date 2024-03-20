@@ -25,7 +25,7 @@
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script src='https://cdn.jsdelivr.net/npm/fullcalendar@6.1.11/index.global.min.js'></script>
     <script>
-        var bookings = @json($bookings);
+        // var bookings = @json($bookings);
         var apartments = @json($apartments);
     </script>
     <link rel="stylesheet" href="{{ url('css/admin.css') }}" type="text/css">

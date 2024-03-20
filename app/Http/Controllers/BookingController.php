@@ -2,16 +2,35 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Apartment;
 use Illuminate\Http\Request;
 use App\Models\Booking;
 
 class BookingController extends Controller
 {
   
-    public function getAll()
+    public function getAll($id = null)
     {
-        $bookings = Booking::all();
-        return response()->json($bookings);
+        if ($id != null) {
+            $apartment = Apartment::find($id);
+            $apartments[] = $apartment;
+            $bookings[$apartment->id] = $apartment->bookings()->get();
+    
+            // return view('admin.read', compact('apartments', 'bookings'));
+    
+        } else {
+            $apartments = Apartment::all();
+    
+            $bookings = [];
+    
+            foreach ($apartments as $apartment) {
+                $bookings[$apartment->id] = $apartment->bookings()->get();
+            }
+    
+            // return view('admin.read', compact('apartments', 'bookings'));
+        }
+        return $bookings;
+
     }
 
     public function update(Request $request, $id)

@@ -35,15 +35,22 @@
         <h2>¡Bienvenido, administrador!</h2>
         <form id="formLogin" action="{{ route('admin.login') }}" method="POST">
             @csrf
+           
             <label for="name">Usuario:</label>
             <input class="swal2-input" type="text" id="name" name="name">
             <label for="password">Contraseña:</label>
             <input class="swal2-input" type="password" id="password" name="password">
+            <p class="error">
+                @if (session()->has('error'))
+                    
+                        {{ session('error') }}
+                @endif
+            </p>
             <input type="submit" value="LOGIN">
         </form>
-        
+
     </section>
-  
+
     @include('footer')
 
 

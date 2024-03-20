@@ -5,9 +5,8 @@
     </div>
     <div class="list-houses">
         <a class="card-house" href="{{ url('apartments/2') }}">
-            <img src="https://tripkay.com/destination-guides/wp-content/uploads/2017/03/Playa-de-Hospitalet-del-Infant-1620x1080.jpg.webp"
-                alt="">
-            <h2>Hospitalet de l'Infant</h2>
+            <img src="{{ asset('uploads/2/Terraza.jpg') }}" alt="">
+            <h2>Loft en Calafat</h2>
 
             <div class="specs">
                 <div><i class="fa-solid fa-bed"></i>1 habitación</div>

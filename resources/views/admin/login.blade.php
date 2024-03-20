@@ -24,33 +24,29 @@
 
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script src='https://cdn.jsdelivr.net/npm/fullcalendar@6.1.11/index.global.min.js'></script>
-    <script>
-        var apartments = @json($apartments);
-    </script>
-    <link rel="stylesheet" href="{{ url('css/admin.css') }}" type="text/css">
+
+    <link rel="stylesheet" href="{{ url('css/login.css') }}" type="text/css">
 
 </head>
 
 <body>
     @include('header')
-    <section class="all-apartments-data">
-        @foreach ($apartments as $apartment)
-            <div id="{{$apartment->id}}" class="apartment-data">
-                <h2 class="title-house">{{ $apartment->name }}</h2>
-                <div class="apartment-table">
-                
-                </div>
-            </div>
-        @endforeach
+    <section class="login-section">
+        <h2>¡Bienvenido, administrador!</h2>
+        <form id="formLogin" action="{{ route('admin.login') }}" method="POST">
+            @csrf
+            <label for="name">Usuario:</label>
+            <input class="swal2-input" type="text" id="name" name="name">
+            <label for="password">Contraseña:</label>
+            <input class="swal2-input" type="password" id="password" name="password">
+            <input type="submit" value="LOGIN">
+        </form>
+        
     </section>
-    <div id="bottomSpace">
-
-    </div>
+  
     @include('footer')
 
 
-    <script src="{{ asset('js/admin.js') }}"></script>
-    {{-- <script src="{{ asset('js/calendarAdmin.js') }}"></script> --}}
 
 </body>
 

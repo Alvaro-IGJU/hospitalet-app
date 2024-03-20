@@ -8,6 +8,11 @@ use Illuminate\Support\Facades\Auth;
 
 class AdminController extends Controller
 {
+    public function __construct()
+    {
+        // $this->middleware('auth');
+    }
+
     public function read($id = null)
     {
         $apartments = [];
@@ -36,7 +41,7 @@ class AdminController extends Controller
 
     public function login(Request $request){
         // Validar los datos del formulario
-
+        // dd(password_hash("alvaro", PASSWORD_DEFAULT));
         $credentials = $request->only('name', 'password');
         // Intentar autenticar al usuario
         if (Auth::attempt($credentials)) {

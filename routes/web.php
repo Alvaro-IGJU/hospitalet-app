@@ -26,9 +26,12 @@ Route::prefix('apartments')->group(function () {
 });
 
 Route::prefix('admin')->group(function () {
-    Route::get('bookings/{id?}', [BookingController::class, 'getAll'])->name('bookings.getAll');
     Route::get('/login', [AdminController::class,'loginView'])->name('admin.loginview');
     Route::post('/login', [AdminController::class,'login'])->name('admin.login');
+});
+
+Route::prefix('admin')->middleware('auth')->group(function () {
+    Route::get('bookings/{id?}', [BookingController::class, 'getAll'])->name('bookings.getAll');
     Route::get('{id?}', [AdminController::class, 'read'])->name('admin.read');
     Route::put('/bookings/{id}', [BookingController::class,'update'])->name('bookings.update');
 });

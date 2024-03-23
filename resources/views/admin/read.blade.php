@@ -35,10 +35,15 @@
     @include('header')
     <section class="all-apartments-data">
         @foreach ($apartments as $apartment)
-            <div id="{{$apartment->id}}" class="apartment-data">
+            <div id="{{ $apartment->id }}" class="apartment-data">
                 <h2 class="title-house">{{ $apartment->name }}</h2>
+
+                <div class="btn-container">
+                    <button class="btn btn-success">Agregar semana +</button>
+                    <button class="btn btn-warning">Generar semanas automáticamente</button>
+                </div>
                 <div class="apartment-table">
-                
+
                 </div>
             </div>
         @endforeach

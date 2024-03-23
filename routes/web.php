@@ -34,4 +34,7 @@ Route::prefix('admin')->middleware('auth')->group(function () {
     Route::get('bookings/{id?}', [BookingController::class, 'getAll'])->name('bookings.getAll');
     Route::get('{id?}', [AdminController::class, 'read'])->name('admin.read');
     Route::put('/bookings/{id}', [BookingController::class,'update'])->name('bookings.update');
+    Route::post('/bookings', [BookingController::class,'create'])->name('bookings.create');
+    Route::delete('/bookings/{id}', [BookingController::class,'delete'])->name('bookings.delete');
+    Route::post('/bookings/automatic', [BookingController::class,'automaticWeeks'])->name('bookings.automatic');
 });

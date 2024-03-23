@@ -93,6 +93,9 @@
     margin-right: 2%;
     display: none;
 }
+.btn-excel{
+   border: 1px solid black;
+}
 .btn{
     font-weight: bold;
 

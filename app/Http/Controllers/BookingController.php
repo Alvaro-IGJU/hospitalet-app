@@ -6,6 +6,10 @@ use App\Models\Apartment;
 use Illuminate\Http\Request;
 use App\Models\Booking;
 use Carbon\Carbon;
+use Illuminate\Support\Facades\Storage;
+use PhpOffice\PhpSpreadsheet\Spreadsheet;
+use PhpOffice\PhpSpreadsheet\Writer\Xlsx;
+use Symfony\Component\HttpFoundation\StreamedResponse;
 
 class BookingController extends Controller
 {
@@ -70,13 +74,13 @@ class BookingController extends Controller
     public function delete(Request $request)
     {
         $bookingId = $request->input('booking_id');
-    
+
         $booking = Booking::find($bookingId);
-    
+
         if (!$booking) {
             return response()->json(['error' => 'Booking not found'], 404);
         }
-    
+
         try {
             $booking->delete();
             return response()->json(['message' => 'Booking deleted successfully'], 200);
@@ -84,7 +88,7 @@ class BookingController extends Controller
             return response()->json(['error' => 'Failed to delete booking'], 500);
         }
     }
-    
+
 
 
     public function automaticWeeks(Request $request)
@@ -123,8 +127,8 @@ class BookingController extends Controller
             $booking->apartment_id = $apartmentId; // ID del apartamento
             $booking->check_in = $currentDate->toDateString();
             $booking->check_out = $currentDate->copy()->addWeek()->toDateString(); // Agregar 7 días para una semana completa
-            $booking->price = rand(100, 200); // Precio aleatorio entre 100 y 200
-            $booking->booked = rand(0, 1); // Estado de reserva aleatorio: 1 para reservado, 0 para no reservado
+            $booking->price = 150; // Precio aleatorio entre 100 y 200
+            $booking->booked = 0; // Estado de reserva aleatorio: 1 para reservado, 0 para no reservado
             $booking->save();
 
             // Mover a la próxima semana
@@ -132,5 +136,54 @@ class BookingController extends Controller
         }
 
         return response()->json(['message' => 'Bookings created successfully'], 200);
+    }
+
+    public function generateExcel($id)
+    {
+        // Buscar el apartamento
+        $apartment = Apartment::findOrFail($id);
+
+        // Obtener los bookings del apartamento
+        $bookings = $apartment->bookings()->orderBy('check_in')->get();
+
+        // Crear una instancia de Spreadsheet
+        $spreadsheet = new Spreadsheet();
+        $sheet = $spreadsheet->getActiveSheet();
+
+        // Encabezados de las columnas para los bookings
+        $sheet->setCellValue('A1', 'ID');
+        $sheet->setCellValue('B1', 'Check In');
+        $sheet->setCellValue('C1', 'Check Out');
+        $sheet->setCellValue('D1', 'Precio');
+        $sheet->setCellValue('E1', 'Estado');
+
+        // Llenar los datos de los bookings en el archivo Excel
+        $row = 2;
+        foreach ($bookings as $booking) {
+            $sheet->setCellValue('A' . $row, $booking->id);
+            $sheet->setCellValue('B' . $row, $booking->check_in);
+            $sheet->setCellValue('C' . $row, $booking->check_out);
+            $sheet->setCellValue('D' . $row, $booking->price);
+            $sheet->setCellValue('E' . $row, $booking->booked ? 'Reservado' : 'Disponible');
+            $row++;
+        }
+
+        // Establecer el nombre del archivo
+        $name = str_replace(' ', '_', $apartment->name);
+        $filename = $name . '.xlsx';
+
+        // Guardar el archivo en el almacenamiento temporal
+        $writer = new Xlsx($spreadsheet);
+        $path = 'temp/' . $filename; // No incluir el slash inicial aquí
+        $writer->save(storage_path('app/' . $path)); // Asegúrate de usar storage_path() aquí
+
+        // Leer el contenido del archivo Excel
+        $excelContent = file_get_contents(storage_path('app/' . $path));
+
+        // Codificar el contenido en base64
+        $base64EncodedExcel = base64_encode($excelContent);
+
+        // Devolver la respuesta como JSON con el contenido base64
+        return response()->json(['base64' => $base64EncodedExcel]);
     }
 }

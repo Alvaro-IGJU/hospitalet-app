@@ -40,6 +40,7 @@
 
                 <div class="btn-container">
                     <button class="btn btn-success">Agregar semana +</button>
+                    <button class="btn btn-excel"><i class="fas fa-file-excel fa-lg" style="color: #3bce59;"></i> Descargar Excel</button>
                     <button class="btn btn-warning">Generar semanas automáticamente</button>
                 </div>
                 <div class="apartment-table">

@@ -30,6 +30,7 @@ function updateTables() {
         let apartmentData = document.getElementById(aparment.id);
         let btn = apartmentData.querySelector('.btn-success');
         let btnAutomatic = apartmentData.querySelector('.btn-warning');
+        let btnExcel = apartmentData.querySelector('.btn-excel');
 
         btn.addEventListener("click", () => {
             Swal.fire({
@@ -128,7 +129,9 @@ function updateTables() {
                             'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content') // Include CSRF token
                         },
                         success: function (response) {
-                            btnAutomatic.style.display = "none"
+                            btnAutomatic.style.display = "none";
+                            btnExcel.style.display = "block";
+
 
                             $.ajax({
                                 url: '/admin/bookings/',
@@ -153,6 +156,40 @@ function updateTables() {
                 }
             });
         })
+
+        btnExcel.addEventListener("click", () => {
+            $.ajax({
+                url: '/admin/bookings/excel/' + aparment.id,
+                method: 'GET',
+                headers: {
+                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content') // Include CSRF token
+                },
+                success: function (response) {
+                    // Decodificar el contenido base64
+                    var decodedData = atob(response.base64);
+        
+                    // Convertir el contenido decodificado en un array de bytes
+                    var byteArray = new Uint8Array(decodedData.length);
+                    for (var i = 0; i < decodedData.length; i++) {
+                        byteArray[i] = decodedData.charCodeAt(i);
+                    }
+        
+                    // Crear un Blob a partir del array de bytes
+                    var blob = new Blob([byteArray], { type: 'application/octet-stream' });
+        
+                    // Crear un enlace <a> para descargar el archivo
+                    var link = document.createElement('a');
+                    link.href = window.URL.createObjectURL(blob);
+                    link.download = 'archivo.xlsx'; // Cambiar el nombre del archivo según sea necesario
+        
+                    // Simular clic en el enlace para iniciar la descarga
+                    link.click();
+                },
+                error: function (xhr, status, error) {
+                    Swal.fire('Error', 'Hubo un problema al generar el excel', 'error');
+                }
+            });
+        });
         let table = apartmentData.querySelector('.apartment-table');
         let rows = table.querySelectorAll(".row");
         rows.forEach((row) => {
@@ -160,7 +197,11 @@ function updateTables() {
         });
         let header = false;
         console.log(bookings[aparment.id])
-        if (bookings[aparment.id].length == 0) btnAutomatic.style.display = "block";
+        if (bookings[aparment.id].length == 0) {
+            btnAutomatic.style.display = "block";
+            btnExcel.style.display = "none";
+
+        }
         bookings[aparment.id].forEach(booking => {
             if (!header) {
                 let row = document.createElement("div");
@@ -257,8 +298,8 @@ function updateTables() {
                     showConfirmButton: true,
                     focusConfirm: false,
                     preConfirm: () => {
-                      
-        
+
+
 
                         return {
                             check_in: formatDate($('#swal-input1').val()),
@@ -316,7 +357,7 @@ function updateTables() {
     });
 }
 
-function deleteWeek(bookingId){
+function deleteWeek(bookingId) {
     Swal.fire({
         title: '¿Seguro que quieres borrar esta semana?',
         showCancelButton: true,

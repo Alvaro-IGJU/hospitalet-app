@@ -37,4 +37,5 @@ Route::prefix('admin')->middleware('auth')->group(function () {
     Route::post('/bookings', [BookingController::class,'create'])->name('bookings.create');
     Route::delete('/bookings/{id}', [BookingController::class,'delete'])->name('bookings.delete');
     Route::post('/bookings/automatic', [BookingController::class,'automaticWeeks'])->name('bookings.automatic');
+    Route::get('/bookings/excel/{id}', [BookingController::class,'generateExcel'])->name('bookings.excel');
 });

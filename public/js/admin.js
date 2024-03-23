@@ -180,7 +180,8 @@ function updateTables() {
                     // Crear un enlace <a> para descargar el archivo
                     var link = document.createElement('a');
                     link.href = window.URL.createObjectURL(blob);
-                    link.download = 'archivo.xlsx'; // Cambiar el nombre del archivo según sea necesario
+                    var apartmentName = aparment.name.replace(/ /g, '_');
+                    link.download = apartmentName+'.xlsx'; 
         
                     // Simular clic en el enlace para iniciar la descarga
                     link.click();

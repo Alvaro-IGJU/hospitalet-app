@@ -10,6 +10,9 @@ use Illuminate\Support\Facades\Storage;
 use PhpOffice\PhpSpreadsheet\Spreadsheet;
 use PhpOffice\PhpSpreadsheet\Writer\Xlsx;
 use Symfony\Component\HttpFoundation\StreamedResponse;
+use PhpOffice\PhpSpreadsheet\Style\Fill;
+use PhpOffice\PhpSpreadsheet\Style\Alignment;
+use PhpOffice\PhpSpreadsheet\Style\Border;
 
 class BookingController extends Controller
 {
@@ -157,14 +160,57 @@ class BookingController extends Controller
         $sheet->setCellValue('D1', 'Precio');
         $sheet->setCellValue('E1', 'Estado');
 
+        // Aplicar estilo a todas las celdas del documento
+        $allCellStyle = [
+            'alignment' => ['horizontal' => Alignment::HORIZONTAL_CENTER, 'vertical' => Alignment::VERTICAL_CENTER]
+        ];
+        $sheet->getStyle('A1:E' . $sheet->getHighestRow())->applyFromArray($allCellStyle);
+
+        // Encabezados de las columnas
+        $headerStyle = [
+            'font' => ['bold' => true, 'color' => ['rgb' => 'FFFFFF']], // Letras blancas
+            'fill' => ['fillType' => Fill::FILL_SOLID, 'startColor' => ['rgb' => '4a73b1']], // Fondo azul
+        ];
+        $sheet->getStyle('A1:E1')->applyFromArray(array_merge($headerStyle, $allCellStyle));
+
+        // Ancho de las columnas
+        $sheet->getColumnDimension('A')->setWidth(15); // ID
+        $sheet->getColumnDimension('B')->setWidth(20); // Check In
+        $sheet->getColumnDimension('C')->setWidth(20); // Check Out
+        $sheet->getColumnDimension('D')->setWidth(15); // Precio
+        $sheet->getColumnDimension('E')->setWidth(15); // Estado
+
         // Llenar los datos de los bookings en el archivo Excel
         $row = 2;
+
         foreach ($bookings as $booking) {
+
             $sheet->setCellValue('A' . $row, $booking->id);
             $sheet->setCellValue('B' . $row, $booking->check_in);
             $sheet->setCellValue('C' . $row, $booking->check_out);
-            $sheet->setCellValue('D' . $row, $booking->price);
-            $sheet->setCellValue('E' . $row, $booking->booked ? 'Reservado' : 'Disponible');
+            $sheet->setCellValue('D' . $row, $booking->price . "€");
+
+            // Aplicar color según el estado del booking
+            $estado = $booking->booked ? 'Reservado' : 'Disponible';
+            $estadoColor = $booking->booked ? 'FF0000' : '006400';
+            $sheet->setCellValue('E' . $row, $estado);
+            $sheet->getStyle('A' . $row)->applyFromArray([
+                'alignment' => ['horizontal' => Alignment::HORIZONTAL_CENTER, 'vertical' => Alignment::VERTICAL_CENTER]
+            ]);
+            $sheet->getStyle('B' . $row)->applyFromArray([
+                'alignment' => ['horizontal' => Alignment::HORIZONTAL_CENTER, 'vertical' => Alignment::VERTICAL_CENTER]
+            ]);
+            $sheet->getStyle('C' . $row)->applyFromArray([
+                'alignment' => ['horizontal' => Alignment::HORIZONTAL_CENTER, 'vertical' => Alignment::VERTICAL_CENTER]
+            ]);
+            $sheet->getStyle('D' . $row)->applyFromArray([
+                'alignment' => ['horizontal' => Alignment::HORIZONTAL_CENTER, 'vertical' => Alignment::VERTICAL_CENTER]
+            ]);
+            $sheet->getStyle('E' . $row)->applyFromArray([
+                'font' => ['bold' => true, 'color' => ['rgb' => $estadoColor]],
+                'alignment' => ['horizontal' => Alignment::HORIZONTAL_CENTER, 'vertical' => Alignment::VERTICAL_CENTER]
+            ]);
+
             $row++;
         }
 

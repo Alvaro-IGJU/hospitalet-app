@@ -1,4 +1,15 @@
 let mes_actual = (new Date()).getMonth();
+let aparmentId = -1;
+let getDay = -1;
+console.log(freeWeeks)
+if (freeWeeks.length > 0) {
+  aparmentId = freeWeeks[0].apartment_id;
+} else if (bookings.length > 0) {
+  aparmentId = bookings[0].apartment_id;
+}
+
+
+let apartmentId = bookings[0]
 let operacion = "today";
 let canExecute = true;
 let nocheWord = document.createElement("p");
@@ -69,9 +80,16 @@ document.addEventListener("DOMContentLoaded", function () {
       var startDate = new Date(info.date);
       var dayOfWeek = startDate.getDay();
 
-      if (startDate.getDay() != 6) {
-        startDate.setDate(startDate.getDate() - dayOfWeek - 1);
+      if (aparmentId == 1) {
+        if (startDate.getDay() != 6) {
+          startDate.setDate(startDate.getDate() - dayOfWeek - 1);
+        }
+      }else if(aparmentId == 2){
+        if (startDate.getDay() != 7) {
+          startDate.setDate(startDate.getDate() - dayOfWeek );
+        }
       }
+
       var endDate = new Date(startDate);
       endDate.setDate(endDate.getDate() + 7);
       let canBook = true;
@@ -135,7 +153,7 @@ document.addEventListener("DOMContentLoaded", function () {
         document.getElementById("finalDay").innerHTML = endDate.getDate() + "-" + (mes_actual + 1) + "-" + endDate.getFullYear();
         document.getElementById("weekNightPrice").innerHTML = nightPrice;
 
-       
+
       }
 
     },

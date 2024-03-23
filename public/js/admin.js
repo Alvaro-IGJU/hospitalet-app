@@ -30,6 +30,7 @@ function updateTables() {
         let apartmentData = document.getElementById(aparment.id);
         let btn = apartmentData.querySelector('.btn-success');
         let btnAutomatic = apartmentData.querySelector('.btn-warning');
+        
         let btnExcel = apartmentData.querySelector('.btn-excel');
 
         btn.addEventListener("click", () => {

@@ -10,7 +10,45 @@ document.addEventListener('DOMContentLoaded', function () {
             bookings = response;
 
             updateTables();
+            apartments.forEach(aparment => {
+                let apartmentData = document.getElementById(aparment.id);
 
+                let btnExcel = apartmentData.querySelector('.btn-excel');
+                btnExcel.addEventListener("click", () => {
+                    $.ajax({
+                        url: '/admin/bookings/excel/' + aparment.id,
+                        method: 'GET',
+                        headers: {
+                            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content') // Include CSRF token
+                        },
+                        success: function (response) {
+                            // Decodificar el contenido base64
+                            var decodedData = atob(response.base64);
+
+                            // Convertir el contenido decodificado en un array de bytes
+                            var byteArray = new Uint8Array(decodedData.length);
+                            for (var i = 0; i < decodedData.length; i++) {
+                                byteArray[i] = decodedData.charCodeAt(i);
+                            }
+
+                            // Crear un Blob a partir del array de bytes
+                            var blob = new Blob([byteArray], { type: 'application/octet-stream' });
+
+                            // Crear un enlace <a> para descargar el archivo
+                            var link = document.createElement('a');
+                            link.href = window.URL.createObjectURL(blob);
+                            var apartmentName = aparment.name.replace(/ /g, '_');
+                            link.download = apartmentName + '.xlsx';
+
+                            // Simular clic en el enlace para iniciar la descarga
+                            link.click();
+                        },
+                        error: function (xhr, status, error) {
+                            Swal.fire('Error', 'Hubo un problema al generar el excel', 'error');
+                        }
+                    });
+                });
+            })
         },
         error: function (xhr, status, error) {
             // Manejar el error de la manera que prefieras, por ejemplo, mostrar un mensaje de error al usuario
@@ -23,6 +61,8 @@ function formatDate(dateString) {
     return `${parts[0]}-${parts[1]}-${parts[2]}`;
 }
 
+
+
 function updateTables() {
 
 
@@ -30,7 +70,7 @@ function updateTables() {
         let apartmentData = document.getElementById(aparment.id);
         let btn = apartmentData.querySelector('.btn-success');
         let btnAutomatic = apartmentData.querySelector('.btn-warning');
-        
+
         let btnExcel = apartmentData.querySelector('.btn-excel');
 
         btn.addEventListener("click", () => {
@@ -158,40 +198,7 @@ function updateTables() {
             });
         })
 
-        btnExcel.addEventListener("click", () => {
-            $.ajax({
-                url: '/admin/bookings/excel/' + aparment.id,
-                method: 'GET',
-                headers: {
-                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content') // Include CSRF token
-                },
-                success: function (response) {
-                    // Decodificar el contenido base64
-                    var decodedData = atob(response.base64);
-        
-                    // Convertir el contenido decodificado en un array de bytes
-                    var byteArray = new Uint8Array(decodedData.length);
-                    for (var i = 0; i < decodedData.length; i++) {
-                        byteArray[i] = decodedData.charCodeAt(i);
-                    }
-        
-                    // Crear un Blob a partir del array de bytes
-                    var blob = new Blob([byteArray], { type: 'application/octet-stream' });
-        
-                    // Crear un enlace <a> para descargar el archivo
-                    var link = document.createElement('a');
-                    link.href = window.URL.createObjectURL(blob);
-                    var apartmentName = aparment.name.replace(/ /g, '_');
-                    link.download = apartmentName+'.xlsx'; 
-        
-                    // Simular clic en el enlace para iniciar la descarga
-                    link.click();
-                },
-                error: function (xhr, status, error) {
-                    Swal.fire('Error', 'Hubo un problema al generar el excel', 'error');
-                }
-            });
-        });
+
         let table = apartmentData.querySelector('.apartment-table');
         let rows = table.querySelectorAll(".row");
         rows.forEach((row) => {

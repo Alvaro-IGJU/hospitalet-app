@@ -6,6 +6,7 @@ use App\Models\Apartment;
 use Illuminate\Http\Request;
 use App\Models\Booking;
 use Carbon\Carbon;
+use DateTime;
 use Illuminate\Support\Facades\Storage;
 use PhpOffice\PhpSpreadsheet\Spreadsheet;
 use PhpOffice\PhpSpreadsheet\Writer\Xlsx;
@@ -186,8 +187,8 @@ class BookingController extends Controller
         foreach ($bookings as $booking) {
 
             $sheet->setCellValue('A' . $row, $booking->id);
-            $sheet->setCellValue('B' . $row, $booking->check_in);
-            $sheet->setCellValue('C' . $row, $booking->check_out);
+            $sheet->setCellValue('B' . $row, (new DateTime($booking->check_in))->format('d-m-Y'));
+            $sheet->setCellValue('C' . $row,(new DateTime($booking->check_out))->format('d-m-Y'));
             $sheet->setCellValue('D' . $row, $booking->price . "€");
 
             // Aplicar color según el estado del booking

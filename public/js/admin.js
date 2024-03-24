@@ -4,7 +4,7 @@ let bookings;
 document.addEventListener('DOMContentLoaded', function () {
 
     $.ajax({
-        url: '/admin/bookings',
+        url: '/patrunco/bookings',
         method: 'GET',
         success: function (response) {
             bookings = response;
@@ -16,7 +16,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 let btnExcel = apartmentData.querySelector('.btn-excel');
                 btnExcel.addEventListener("click", () => {
                     $.ajax({
-                        url: '/admin/bookings/excel/' + aparment.id,
+                        url: '/patrunco/bookings/excel/' + aparment.id,
                         method: 'GET',
                         headers: {
                             'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content') // Include CSRF token
@@ -61,6 +61,10 @@ function formatDate(dateString) {
     return `${parts[0]}-${parts[1]}-${parts[2]}`;
 }
 
+function formatDateEuropean(dateString) {
+    const parts = dateString.split('-');
+    return `${parts[2]}-${parts[1]}-${parts[0]}`;
+}
 
 
 function updateTables() {
@@ -113,7 +117,7 @@ function updateTables() {
                     const data = result.value;
 
                     $.ajax({
-                        url: '/admin/bookings/',
+                        url: '/patrunco/bookings/',
                         method: 'POST',
                         data: data,
                         headers: {
@@ -123,7 +127,7 @@ function updateTables() {
                             btnAutomatic.style.display = "none"
 
                             $.ajax({
-                                url: '/admin/bookings/',
+                                url: '/patrunco/bookings/',
                                 method: 'GET',
                                 success: function (result) {
                                     console.log(result)
@@ -163,7 +167,7 @@ function updateTables() {
                     const data = result.value;
 
                     $.ajax({
-                        url: '/admin/bookings/automatic',
+                        url: '/patrunco/bookings/automatic',
                         method: 'POST',
                         data: data,
                         headers: {
@@ -175,7 +179,7 @@ function updateTables() {
 
 
                             $.ajax({
-                                url: '/admin/bookings/',
+                                url: '/patrunco/bookings/',
                                 method: 'GET',
                                 success: function (result) {
                                     console.log(result)
@@ -270,6 +274,8 @@ function updateTables() {
                             }
                         } else if (key == "price") {
                             element = element + "€";
+                        } else if(key == "check_in" || key == "check_out"){
+                          element = formatDateEuropean(element)
                         }
                         attribute.innerHTML = element;
                         row.appendChild(attribute);
@@ -322,7 +328,7 @@ function updateTables() {
                         const data = result.value;
 
                         $.ajax({
-                            url: '/admin/bookings/' + booking.id,
+                            url: '/patrunco/bookings/' + booking.id,
                             method: 'PUT',
                             data: data,
                             headers: {
@@ -331,7 +337,7 @@ function updateTables() {
                             success: function (response) {
 
                                 $.ajax({
-                                    url: '/admin/bookings/',
+                                    url: '/patrunco/bookings/',
                                     method: 'GET',
                                     success: function (result) {
                                         console.log(result)
@@ -382,7 +388,7 @@ function deleteWeek(bookingId) {
             const data = result.value;
 
             $.ajax({
-                url: '/admin/bookings/' + bookingId,
+                url: '/patrunco/bookings/' + bookingId,
                 method: 'DELETE',
                 data: data,
                 headers: {
@@ -391,7 +397,7 @@ function deleteWeek(bookingId) {
                 success: function (response) {
 
                     $.ajax({
-                        url: '/admin/bookings/',
+                        url: '/patrunco/bookings/',
                         method: 'GET',
                         success: function (result) {
                             console.log(result)

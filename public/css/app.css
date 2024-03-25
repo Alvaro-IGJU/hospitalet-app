@@ -96,3 +96,194 @@
         margin-top: 150px;
     }
 }
+
+/* Dispositivos muy pequeños (teléfonos móviles en modo retrato, menos de 480px) */
+@media (max-width: 480px) {
+    .list-houses{
+        display: flex;
+        flex-direction: column;
+        align-items: center ;
+        justify-content: center;
+    }
+
+    .card-house{
+        width: 70%;
+        height: 350px;
+    }
+
+    .card-house:nth-child(2){
+        margin-left: 0;
+        margin-top: 5%;
+    }
+
+    .specs div{ 
+       font-size: 0.6em;
+    }
+}
+
+/* Dispositivos pequeños (teléfonos móviles en modo paisaje, de 481px a 768px) */
+@media (min-width: 481px) and (max-width: 550px) {
+    .list-houses{
+        display: flex;
+        flex-direction: column;
+        align-items: center ;
+        justify-content: center;
+    }
+
+    .card-house{
+        height: 350px;
+      
+        width: 70%;
+    }
+
+    .card-house:nth-child(2){
+        margin-left: 0;
+        margin-top: 5%;
+    }
+
+    .specs div{ 
+        font-size: 0.7em;
+     }
+}
+@media (min-width: 550px) and (max-width: 650px) {
+    .list-houses{
+        display: flex;
+        flex-direction: column;
+        align-items: center ;
+        justify-content: center;
+    }
+
+    .card-house{
+        height: 350px;
+      
+        width: 65%;
+    }
+
+    .card-house:nth-child(2){
+        margin-left: 0;
+        margin-top: 5%;
+    }
+
+    .specs div{ 
+        font-size: 0.7em;
+     }
+}
+
+@media (min-width: 650px) and (max-width: 769px) {
+    .list-houses{
+        display: flex;
+        flex-direction: column;
+        align-items: center ;
+        justify-content: center;
+    }
+
+    .card-house{
+        height: 360px;
+        width: 57%;
+    }
+
+    .card-house:nth-child(2){
+        margin-left: 0;
+        margin-top: 5%;
+    }
+
+    .specs div{ 
+        font-size: 0.7em;
+     }
+}
+
+/* Tabletas en modo retrato y paisaje / pantallas bajas (de 769px a 1024px) */
+@media (min-width: 769px) and (max-width: 850px) {
+    .list-houses{
+        display: flex;
+        flex-direction: column;
+        align-items: center ;
+        justify-content: center;
+    }
+
+    .card-house{
+        height: 360px;
+        width: 57%;
+    }
+
+    .card-house:nth-child(2){
+        margin-left: 0;
+        margin-top: 5%;
+    }
+
+    .specs div{ 
+        font-size: 0.8em;
+     }
+}
+@media (min-width: 850px) and (max-width: 1024px) {
+    .list-houses{
+        display: flex;
+        flex-direction: column;
+        align-items: center ;
+        justify-content: center;
+    }
+
+    .card-house{
+        height: 360px;
+        width: 50%;
+    }
+
+    .card-house:nth-child(2){
+        margin-left: 0;
+        margin-top: 5%;
+    }
+
+    .specs div{ 
+        font-size: 0.8em;
+     }
+}
+/* Pequeñas computadoras de escritorio (de 1025px a 1280px) */
+@media (min-width: 1025px) and (max-width: 1280px) {
+    .list-houses{
+        display: flex;
+        flex-direction: row;
+        align-items: center ;
+        justify-content: center;
+    }
+
+    .card-house{
+        height: 360px;
+        width: 40%;
+    }
+
+    .card-house:nth-child(2){
+        margin-left: 2%;
+    }
+
+    .specs div{ 
+        font-size: 0.8em;
+     }
+}
+
+/* Computadoras de escritorio medianas (de 1281px a 1440px) */
+@media (min-width: 1281px) and (max-width: 1440px) {
+    .list-houses{
+        display: flex;
+        flex-direction: row;
+        align-items: center ;
+        justify-content: center;
+    }
+
+    .card-house{
+        height: 360px;
+        width: 32%;
+    }
+
+    .card-house:nth-child(2){
+        margin-left: 2%;
+    }
+
+    .specs div{ 
+        font-size: 0.8em;
+     }
+}
+
+/* Computadoras de escritorio grandes (más de 1441px) */
+@media (min-width: 1441px) {
+    /* Estilos */
+}

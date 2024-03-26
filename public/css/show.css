@@ -886,30 +886,56 @@ iframe {
     #fixedCalendar {
         width: 100%;
     }
-    #calendar{
-        margin-left:3%;
+
+    #calendar {
+        margin-left: 3%;
         width: 90%;
         /* height: 400px; */
         height: 430px;
         padding-bottom: 1%;
     }
-    
-    #dateSelector{
+
+    #dateSelector {
         margin: auto;
         height: 180px;
         margin-top: 2%;
         width: 80%;
     }
-   
-    .datesOptions{
-        top:550px;
+
+    .datesOptions {
+        top: 550px;
         width: 20px;
     }
 }
 
 /* Pequeñas computadoras de escritorio (de 1025px a 1280px) */
 @media (min-width: 1025px) and (max-width: 1280px) {
-    /* Estilos */
+    .show-house{
+        height: 500px;
+    }
+    .photos{
+        height: 350px;
+    }
+    .side-photo {
+        width: 45%;
+    }
+    .first-photo{
+        width: 50%;
+    }
+    .specs-container{
+        width: 40%;
+    }
+    #datePickDiv{
+        width: 50%;
+    }
+
+    #calendar{
+        padding-bottom: 1%;
+    }
+
+    #dateSelector{
+        height: 200px;
+    }
 }
 
 /* Computadoras de escritorio medianas (de 1281px a 1440px) */

@@ -52,7 +52,7 @@
         </div>
         @endif
     @else
-        <a hidden href="{{ asset($photo) }}" data-fancybox="gallery" class="first-photo">
+        <a hidden href="{{ asset($photo) }}" data-fancybox="gallery" >
             <img src="{{ asset($photo) }}" alt="Foto principal del apartamento">
         </a>
         @endif

@@ -51,10 +51,10 @@
                     @if ($index == 4)
         </div>
         @endif
-    @else
-        <a hidden href="{{ asset($photo) }}" data-fancybox="gallery" class="first-photo">
-            <img src="{{ asset($photo) }}" alt="Foto principal del apartamento">
-        </a>
+                @else
+                <a hidden href="{{ asset($photo) }}" data-fancybox="gallery" class="first-photo">
+                    <img src="{{ asset($photo) }}" alt="Foto principal del apartamento">
+                </a>
         @endif
         @endforeach
         </div>

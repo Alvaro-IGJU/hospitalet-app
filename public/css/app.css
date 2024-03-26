@@ -218,19 +218,19 @@
 @media (min-width: 850px) and (max-width: 1024px) {
     .list-houses{
         display: flex;
-        flex-direction: column;
+        flex-direction: row;
         align-items: center ;
         justify-content: center;
     }
 
     .card-house{
-        height: 360px;
-        width: 50%;
+        height: 450px;
+        width: 40%;
     }
 
     .card-house:nth-child(2){
-        margin-left: 0;
-        margin-top: 5%;
+        /* margin-left: 0; */
+        /* margin-top: 5%; */
     }
 
     .specs div{ 
@@ -238,7 +238,7 @@
      }
 }
 /* Pequeñas computadoras de escritorio (de 1025px a 1280px) */
-@media (min-width: 1025px) and (max-width: 1280px) {
+@media (min-width: 1025px) and (max-width: 1125px) {
     .list-houses{
         display: flex;
         flex-direction: row;
@@ -247,8 +247,30 @@
     }
 
     .card-house{
-        height: 360px;
+        height: 450px;
         width: 40%;
+    }
+
+    .card-house:nth-child(2){
+        margin-left: 2%;
+    }
+
+    .specs div{ 
+        font-size: 0.8em;
+     }
+}
+
+@media (min-width: 1125px) and (max-width: 1280px) {
+    .list-houses{
+        display: flex;
+        flex-direction: row;
+        align-items: center ;
+        justify-content: center;
+    }
+
+    .card-house{
+        height: 450px;
+        width: 35%;
     }
 
     .card-house:nth-child(2){
@@ -270,7 +292,7 @@
     }
 
     .card-house{
-        height: 360px;
+        height: 450px;
         width: 32%;
     }
 
@@ -285,5 +307,23 @@
 
 /* Computadoras de escritorio grandes (más de 1441px) */
 @media (min-width: 1441px) {
-    /* Estilos */
+    .list-houses{
+        display: flex;
+        flex-direction: row;
+        align-items: center ;
+        justify-content: center;
+    }
+
+    .card-house{
+        height: 450px;
+        width: 30%;
+    }
+
+    .card-house:nth-child(2){
+        margin-left: 2%;
+    }
+
+    .specs div{ 
+        font-size: 0.8em;
+     }
 }

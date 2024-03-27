@@ -529,6 +529,10 @@ iframe {
         height: 370px;
     }
 
+    #house-specs {
+        width: 90%;
+        margin-left: 3%;
+    }
 
     .house-specs .specs-container {
         width: 100%;
@@ -558,6 +562,15 @@ iframe {
         margin-top: 3%;
 
     }
+
+    #googleMaps iframe {
+        padding: 2%;
+    }
+
+    .rules {
+        height: 620px;
+    }
+
 }
 
 /* Dispositivos pequeños (teléfonos móviles en modo paisaje, de 481px a 768px) */
@@ -648,7 +661,7 @@ iframe {
 }
 
 /* Tabletas en modo retrato y paisaje / pantallas bajas (de 769px a 1024px) */
-@media (min-width: 650px) and (max-width: 769px) {
+@media (min-width: 650px) and (max-width: 767px) {
     body {
         width: 100%;
 
@@ -743,7 +756,7 @@ iframe {
 }
 
 /* Tabletas en modo retrato y paisaje / pantallas bajas (de 769px a 1024px) */
-@media (min-width: 769px) and (max-width: 842px) {
+@media (min-width: 767px) and (max-width: 842px) {
     body {
         width: 100%;
 
@@ -751,56 +764,88 @@ iframe {
 
     .title-house {
         font-size: 1.3em;
+        margin-bottom: 5%;
     }
 
     .photos {
-        width: 80%;
-        flex-direction: column;
+        width: 100%;
+        display: flex;
         justify-content: center;
         align-items: center;
         margin: auto;
-        margin-top: 17%;
-        height: 200px;
+        height: 250px;
+
     }
 
     .first-photo {
-        width: 100%;
-
+        width: 40%;
+        height: 250px;
     }
 
     .first-photo img {
         border-radius: 0px;
     }
 
-    .side-photos {
-        flex-direction: row;
-        flex-wrap: nowrap;
-        justify-content: center;
-        align-items: center;
+    .first-photo {
+
+        width: 40%;
+        margin-right: 10px;
+    }
+
+    .first-photo img {
         width: 100%;
-        margin-top: 2%;
+        border-top-left-radius: 20px;
+        border-bottom-left-radius: 20px;
+        height: 100%;
+
+    }
+
+    .side-photos {
+
+
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+        /* Espacio entre las fotos pequeñas */
+        width: 40%;
+        height: 250px;
     }
 
     .side-photo {
-        width: 22%;
+        width: 48%;
+        /* Hace que las fotos pequeñas llenen su contenedor */
+        /* Mantiene la proporción de la imagen */
     }
 
-    .side-photos img:first-child {
-        border-radius: 0px;
+    .side-photo img {
+        width: 100%;
+        height: 100%;
+
     }
+
+    .side-photo:nth-child(2)>img {
+        border-top-right-radius: 20px;
+
+    }
+
+    .side-photo:nth-child(4)>img {
+
+        border-bottom-right-radius: 20px;
+    }
+
+
 
 
     .show-house {
         width: 100%;
         margin: auto;
         height: 370px;
-        margin-bottom: 6%;
+        margin-bottom: 0%;
 
     }
 
     .house-specs {
         width: 80%;
-        margin-top: 20%;
 
     }
 
@@ -828,9 +873,9 @@ iframe {
 
     #dateSelector {
         margin: 0;
-        width: 100%;
+        width: 70%;
         margin-top: 3%;
-
+        margin: auto;
     }
 
     #googleMaps {
@@ -915,11 +960,16 @@ iframe {
     }
 
     .photos {
-        height: 350px;
+        height: 400px;
+        width: 100%;
+    }
+
+    .side-photos {
+        width: 50%;
     }
 
     .side-photo {
-        width: 45%;
+        width: 48%;
     }
 
     .first-photo {
@@ -927,7 +977,7 @@ iframe {
     }
 
     .specs-container {
-        width: 40%;
+        width: 50%;
     }
 
     #datePickDiv {
@@ -950,37 +1000,52 @@ iframe {
     }
 
     .photos {
+        width: 100%;
         height: 350px;
     }
 
+    .side-photos {
+        width: 50%;
+    }
+
     .side-photo {
-        width: 45%;
+        width: 49%;
     }
 
     .first-photo {
-        width: 40%;
+        width: 50%;
     }
 
     .specs-container {
-        width: 40%;
+        width: 50%;
     }
 
     #datePickDiv {
         width: 50%;
     }
 
+
+
     #calendar {
-        padding-bottom: 5%;
+        height: 90%;
+        margin-left: 2%;
+        /* margin-top: -7%; */
+        padding-bottom: 2%;
     }
 
     #dateSelector {
-        height: 200px;
+        height: 160px;
     }
 
     .datesOptions {
-        top: 580px;
+        top: 470px;
         width: 20px;
     }
+
+    #googleMaps {
+        margin-top: 4%
+    }
+
 }
 
 /* Computadoras de escritorio grandes (más de 1441px) */
@@ -991,19 +1056,27 @@ iframe {
 
     .photos {
         width: 100%;
-        height: 350px;
+        height: 440px;
+    }
+
+    .side-photos {
+        width: 50%;
     }
 
     .side-photo {
-        width: 45%;
+        width: 49%;
     }
 
     .first-photo {
-        width: 35%;
+        width: 50%;
     }
 
     .specs-container {
         width: 40%;
+    }
+
+    #house-specs {
+        margin-top: 5%;
     }
 
     #datePickDiv {
@@ -1019,9 +1092,35 @@ iframe {
     }
 
 }
+@media  (max-height:599px){
+  
+    .datesOptions {
+        top: 660px;
+        width: 20px;
+    }
+}
+@media (min-height: 600px) and (max-height: 860px){
+    #fixedCalendar {
+        height: max-content;
+        position: sticky;
+        top: -100px;
+        /* border: 1px solid red; */
+    }
 
+    .datesOptions {
+        top: 620px;
+        width: 20px;
+    }
+}
 
-@media (min-height: 1000px){
+@media (min-height: 860px) and (max-height: 1000px){
+    .datesOptions {
+        top: 650px;
+        width: 20px;
+    }
+}
+
+@media (min-height: 1000px) {
     #dateSelector {
         margin-top: 10%;
         height: 250px;

@@ -84,7 +84,10 @@
     align-items: center;
     width: 33%;
 }
-
+.specs div p{
+    margin-bottom: 0;
+    margin-left: 2%;
+}
 /* .specs div *{ 
     margin: 4%;
 } */

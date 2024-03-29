@@ -25,7 +25,7 @@ if (language == 'en') {
   semanaNoDisponible = "Woche nicht verfügbar"
   noche_palabra = "abend";
 
-}else{
+} else {
   language_cal = 'es'
 }
 if (freeWeeks.length > 0) {
@@ -39,7 +39,7 @@ let apartmentId = bookings[0]
 let operacion = "today";
 let canExecute = true;
 let nocheWord = document.createElement("p");
-nocheWord.textContent = "   "+noche_palabra
+nocheWord.textContent = "   " + noche_palabra
 function generateEvents(info, successCallback, failureCallback) {
   if (canExecute) {
     if (operacion == "next") {
@@ -262,6 +262,10 @@ document.addEventListener('DOMContentLoaded', function () {
 
         option.addEventListener("click", () => {
           document.getElementById("weekNightPrice").innerHTML = option.price + "€";
+          document.getElementById("priceNight").appendChild(nocheWord);
+
+          nocheWord.textContent = "   " + noche_palabra
+
           document.getElementById("totalPrice").innerHTML = totalPrice + "€";
 
           document.getElementById("firstDay").innerHTML = optionFirstDay.innerHTML;

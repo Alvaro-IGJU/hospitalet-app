@@ -49,9 +49,7 @@
             </div>
         @endforeach
     </section>
-    <div id="bottomSpace">
 
-    </div>
     @include('footer')
 
 

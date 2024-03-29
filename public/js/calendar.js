@@ -3,7 +3,6 @@ let aparmentId = -1;
 let getDay = -1;
 var language = navigator.language || navigator.userLanguage;
 let language_cal = language;
-console.log("Idioma del navegador:", language);
 let reservado = "Reservado";
 let semanaYaReservada = "Semana ya reservada";
 let semanaNoDisponible = "Semana no disponible";

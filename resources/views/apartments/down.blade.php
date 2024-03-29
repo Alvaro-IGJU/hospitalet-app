@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Loft en Calafat</title>
+    <title>@lang('messages.loft_in_calafat_spain')</title>
     <link rel="stylesheet" href="{{ url('css/app.css') }}" type="text/css">
     <link rel="stylesheet" href="{{ url('css/header_footer.css') }}" type="text/css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"

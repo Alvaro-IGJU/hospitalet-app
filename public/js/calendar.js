@@ -1,7 +1,33 @@
 let mes_actual = (new Date()).getMonth();
 let aparmentId = -1;
 let getDay = -1;
-console.log(freeWeeks)
+var language = navigator.language || navigator.userLanguage;
+let language_cal = language;
+console.log("Idioma del navegador:", language);
+let reservado = "Reservado";
+let semanaYaReservada = "Semana ya reservada";
+let semanaNoDisponible = "Semana no disponible";
+let noche_palabra = "noche";
+if (language == 'en') {
+  reservado = "Reserved";
+  semanaYaReservada = "Week already reserved"
+  semanaNoDisponible = "Week not available"
+  noche_palabra = "night";
+} else if (language == 'fr') {
+  reservado = "Réservé";
+  semanaYaReservada = "Semaine déjà réservée";
+  semanaNoDisponible = "Semaine non disponible"
+  noche_palabra = "nuit";
+
+} else if (language == 'de') {
+  reservado = "Reserviert";
+  semanaYaReservada = "Woche bereits reserviert";
+  semanaNoDisponible = "Woche nicht verfügbar"
+  noche_palabra = "abend";
+
+}else{
+  language_cal = 'es'
+}
 if (freeWeeks.length > 0) {
   aparmentId = freeWeeks[0].apartment_id;
 } else if (bookings.length > 0) {
@@ -13,7 +39,7 @@ let apartmentId = bookings[0]
 let operacion = "today";
 let canExecute = true;
 let nocheWord = document.createElement("p");
-nocheWord.textContent = "   noche"
+nocheWord.textContent = "   "+noche_palabra
 function generateEvents(info, successCallback, failureCallback) {
   if (canExecute) {
     if (operacion == "next") {
@@ -43,7 +69,7 @@ function generateEvents(info, successCallback, failureCallback) {
         if (currentDate >= bookingStartDate && currentDate <= bookingEndDate) {
 
           events.push({
-            title: "Reservado",
+            title: reservado,
             start: bookingStartDate,
             end: new Date(bookingEndDate),
             backgroundColor: "#FF6666",
@@ -69,7 +95,7 @@ document.addEventListener("DOMContentLoaded", function () {
     fixedWeekCount: false,
     editable: false,
     selectable: false,
-    locale: "es",
+    locale: language_cal,
     firstDay: 1,
     selectConstraint: {
       start: "00:00",
@@ -84,16 +110,16 @@ document.addEventListener("DOMContentLoaded", function () {
         if (startDate.getDay() != 6) {
           startDate.setDate(startDate.getDate() - dayOfWeek - 1);
         }
-      }else if(aparmentId == 2){
+      } else if (aparmentId == 2) {
         if (startDate.getDay() != 7) {
-          startDate.setDate(startDate.getDate() - dayOfWeek );
+          startDate.setDate(startDate.getDate() - dayOfWeek);
         }
       }
 
       var endDate = new Date(startDate);
       endDate.setDate(endDate.getDate() + 7);
       let canBook = true;
-      let nightPrice = "Semana no disponible";
+      let nightPrice = semanaNoDisponible;
       let totalPrice = "";
       //------------------------------------------------
       for (var i = 0; i < bookings.length; i++) {
@@ -130,7 +156,7 @@ document.addEventListener("DOMContentLoaded", function () {
         document.getElementById("finalDay").innerHTML = endDate.getDate() + "-" + (mes_actual + 1) + "-" + endDate.getFullYear();
         document.getElementById("weekNightPrice").innerHTML = nightPrice;
 
-        if (nightPrice !== "Semana no disponible") {
+        if (nightPrice !== semanaNoDisponible) {
           document.getElementById("priceNight").appendChild(nocheWord);
         } else {
           nocheWord.remove();
@@ -148,7 +174,7 @@ document.addEventListener("DOMContentLoaded", function () {
         });
         nocheWord.remove();
 
-        nightPrice = "Semana ya reservada";
+        nightPrice = semanaYaReservada;
         document.getElementById("firstDay").innerHTML = startDate.getDate() + "-" + (mes_actual + 1) + "-" + startDate.getFullYear();
         document.getElementById("finalDay").innerHTML = endDate.getDate() + "-" + (mes_actual + 1) + "-" + endDate.getFullYear();
         document.getElementById("weekNightPrice").innerHTML = nightPrice;

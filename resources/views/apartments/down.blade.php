@@ -33,7 +33,7 @@
 
 <body>
 
-    @include('header', ['see_loft' => false, 'see_apartment' => true])
+    @include('header', ['otherApartmentEnabled' => true,'see_loft' => false, 'see_apartment' => $otherApartmentEnabled])
     <section class="show-house">
         <h2 class="title-house">@lang('messages.apartment_2_title')</h2>
         <div class="photos">

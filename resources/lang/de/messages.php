@@ -85,6 +85,8 @@ return [
     'web_development' => 'Webentwicklung',
     'graphic_design' => 'Grafikdesign',
     'and' => 'und',
+    'see_loft' => 'Loft anzeigen',
+    'see_apartment' => 'Wohnung anzeigen',
 
 
 

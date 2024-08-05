@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="LP_COLOR_BLANCO" data-name="LP COLOR+BLANCO" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 720">
+  <defs>
+    <style>
+      .cls-1 {
+        font-family: Helvetica-Bold, Helvetica;
+        font-size: 25px;
+      }
+
+      .cls-1, .cls-2 {
+        fill: #000;
+        font-weight: 700;
+      }
+
+      .cls-3 {
+        letter-spacing: -.05em;
+      }
+
+      .cls-4 {
+        letter-spacing: -.09em;
+      }
+
+      .cls-5 {
+        letter-spacing: 0em;
+      }
+
+      .cls-6 {
+        letter-spacing: 0em;
+      }
+
+      .cls-7 {
+        letter-spacing: -.07em;
+      }
+
+      .cls-8 {
+        stroke-width: 4px;
+      }
+
+      .cls-8, .cls-9 {
+        stroke: #92dccd;
+      }
+
+      .cls-8, .cls-9, .cls-10 {
+        fill: none;
+        stroke-miterlimit: 10;
+      }
+
+      .cls-11 {
+        letter-spacing: -.05em;
+      }
+
+      .cls-2 {
+        font-family: HelveticaNeue-Bold, 'Helvetica Neue';
+        font-size: 40px;
+      }
+
+      .cls-9 {
+        stroke-width: 5px;
+      }
+
+      .cls-10 {
+        stroke: #dfb86a;
+        stroke-width: 6px;
+      }
+    </style>
+  </defs>
+  <text class="cls-2" transform="translate(234.02 535.04)"><tspan class="cls-3" x="0" y="0">V</tspan><tspan class="cls-5" x="23.36" y="0">AC</tspan><tspan class="cls-4" x="80.4" y="0">A</tspan><tspan x="104.12" y="0">TIONAL</tspan></text>
+  <text class="cls-1" transform="translate(302.59 572.85)"><tspan x="0" y="0">CALA</tspan><tspan class="cls-11" x="69.43" y="0">F</tspan><tspan class="cls-7" x="83.34" y="0">A</tspan><tspan class="cls-6" x="99.55" y="0">T</tspan></text>
+  <path class="cls-9" d="M76,412.06c26.66-18.06,48.53,1.74,81.21,24.29,32.68,22.55,49.02,19.11,67.08,11.37,18.06-7.74,40.42-27.35,67.08-29.16,26.66-1.81,70.05,32.3,92.22,35.03,22.17,2.73,60.01-17.06,75.49-26.52s42.14-17.2,67.08,4.3c24.94,21.5,35.26,23.44,59.34,22.47,24.08-.97,58.48-25.91,58.48-25.91"/>
+  <path class="cls-8" d="M76,437.72c26.66-18.06,48.53,1.74,81.21,24.29,32.68,22.55,49.02,19.11,67.08,11.37,18.06-7.74,40.42-27.35,67.08-29.16,26.66-1.81,70.05,32.3,92.22,35.03,22.17,2.73,60.01-17.06,75.49-26.52s42.14-17.2,67.08,4.3c24.94,21.5,35.26,23.44,59.34,22.47,24.08-.97,58.48-25.91,58.48-25.91"/>
+  <path class="cls-10" d="M76,412.06c.93-149,136.93-276.88,279.93-276.94s286.13,109.28,288.07,292.61"/>
+</svg>

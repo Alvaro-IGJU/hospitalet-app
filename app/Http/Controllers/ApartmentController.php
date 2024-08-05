@@ -8,9 +8,16 @@ use Illuminate\Http\Request;
 
 class ApartmentController extends Controller
 {
+
+    public function index(){
+        $apartments = Apartment::all();
+        return view('welcome', ['apartments' => $apartments]); 
+    }
+
     public function show($id)
     {
         $apartment = Apartment::find($id);
+        $other_apartment_enabled = Apartment::find($id== 1? 2:1)->enabled;
         if (!$apartment) {
             abort(404, 'Apartamento no encontrado');
         }
@@ -25,7 +32,7 @@ class ApartmentController extends Controller
         }else{
             $view = 'apartments.down';
         }
-        return view($view, ['apartment' => $apartment, 'bookings' => $bookings,'freeWeeks' => $freeWeeks, 'photos' => $photos]);
+        return view($view, ['apartment' => $apartment, 'bookings' => $bookings,'freeWeeks' => $freeWeeks, 'photos' => $photos, 'otherApartmentEnabled' => $other_apartment_enabled]);
     }
 
 
@@ -59,4 +66,20 @@ class ApartmentController extends Controller
             return [];
         }
     }
+
+    public function updateEnabledStatus(Request $request, $id){
+        $apartment = Apartment::findOrFail($id);
+        if($request->input('changeState') == "true"){
+            $apartment->enabled = true;
+        }else{
+            $apartment->enabled = false;
+
+        }
+      
+        $apartment->save();
+
+        return $apartment;
+    }
+
+    
 }

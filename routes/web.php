@@ -17,9 +17,8 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', [ApartmentController::class, 'index']);
+
 
 Route::prefix('apartments')->group(function () {
     Route::get('{id}', [ApartmentController::class, 'show'])->name('apartments.show');
@@ -31,6 +30,7 @@ Route::prefix('patrunco')->group(function () {
 });
 
 Route::prefix('patrunco')->middleware('auth')->group(function () {
+    Route::put('apartments/{id}', [ApartmentController::class, 'updateEnabledStatus'])->name('apartments.updateEnabledStatus');
     Route::get('bookings/{id?}', [BookingController::class, 'getAll'])->name('bookings.getAll');
     Route::get('{id?}', [AdminController::class, 'read'])->name('admin.read');
     Route::put('/bookings/{id}', [BookingController::class,'update'])->name('bookings.update');

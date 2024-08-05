@@ -4,6 +4,7 @@
         <p>@lang('messages.explore_apartments')</p>
     </div>
     <div class="list-houses">
+        @if($apartments[1]->enabled)
         <a class="card-house" href="{{ url('apartments/2') }}">
             <img src="{{ asset('uploads/2/Terraza.jpg') }}" alt="">
             <h2>@lang('messages.apartment_2')</h2>
@@ -56,6 +57,8 @@
                 </div>
             </div>
         </a>
+        @endif
+        @if($apartments[0]->enabled)
         <a class="card-house" href="{{ url('apartments/1') }}">
             <img src="{{ asset('uploads/1/Terraza.jpg') }}" alt="">
             <h2>@lang('messages.apartment_1')</h2>
@@ -126,5 +129,7 @@
                 </div>
             </div>
         </a>
+        @endif
+
     </div>
 </section>

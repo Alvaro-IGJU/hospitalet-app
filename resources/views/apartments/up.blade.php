@@ -32,9 +32,9 @@
 </head>
 
 <body>
-    @include('header', ['see_loft' => true, 'see_apartment' => false])
+    @include('header', ['otherApartmentEnabled' => true,'see_loft' => $otherApartmentEnabled, 'see_apartment' => false])
     <section class="show-house">
-        <h2 class="title-house">@lang('messages.apartment_in_calafat_spain')</h2>
+        <h2 class="title-house">@lang('messages.apartment_1_title')</h2>
         <div class="photos">
             @foreach ($photos as $index => $photo)
                 @if ($index == 0)

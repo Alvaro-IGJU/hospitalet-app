@@ -15,8 +15,8 @@
 </head>
 
 <body>
-    @include('header')
-    @include('list')
+    @include('header', ['see_loft' => true, 'see_apartment' => true, 'apartments' => $apartments])
+    @include('list', ['apartments' => $apartments])
 
     @include('footer')
 

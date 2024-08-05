@@ -48,6 +48,12 @@ document.addEventListener('DOMContentLoaded', function () {
                         }
                     });
                 });
+
+                let btnChangeState = apartmentData.querySelector('.changeState');
+                btnChangeState.addEventListener("click",()=>{
+                    updateApartmentStatus(btnChangeState.checked, aparment.id)
+                }) 
+
             })
         },
         error: function (xhr, status, error) {
@@ -413,6 +419,43 @@ function deleteWeek(bookingId) {
                 error: function (xhr, status, error) {
                     console.error('Error en la llamada AJAX:', error);
                     Swal.fire('Error', 'Hubo un problema al actualizar la reserva', 'error');
+                }
+            });
+        } else if (result.dismiss === Swal.DismissReason.cancel) {
+            console.log('El usuario ha cancelado la operación.');
+        }
+    });
+}
+
+function updateApartmentStatus(changeState, apartment_id) {
+    Swal.fire({
+        title: '¿Seguro que quieres activar/desactivar el apartamento?',
+        showCancelButton: true,
+        showConfirmButton: true,
+        focusConfirm: false,
+        preConfirm: () => {
+            return {
+                changeState: changeState
+            };
+        }
+    }).then((result) => {
+        if (result.isConfirmed) {
+            const data = result.value;
+
+            $.ajax({
+                url: '/patrunco/apartments/' + apartment_id,
+                method: 'PUT',
+                data: data,
+                headers: {
+                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content') // Include CSRF token
+                },
+                success: function (response) {
+
+                    Swal.fire('¡Éxito!', 'El estado del apartamento se ha actualizado correctamente', 'success');
+                },
+                error: function (xhr, status, error) {
+                    console.error('Error en la llamada AJAX:', error);
+                    Swal.fire('Error', 'Hubo un problema al actualizar el estado del apartamento', 'error');
                 }
             });
         } else if (result.dismiss === Swal.DismissReason.cancel) {

@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="ACRÓNIMO_BLANCO_NEGRO" data-name="ACRÓNIMO BLANCO + NEGRO" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 720">
+  <defs>
+    <style>
+      .cls-1 {
+        stroke-width: 4px;
+      }
+
+      .cls-1, .cls-2, .cls-3 {
+        fill: none;
+        stroke: #fff;
+        stroke-miterlimit: 10;
+      }
+
+      .cls-4 {
+        fill: #1d1d1b;
+        stroke-width: 0px;
+      }
+
+      .cls-2 {
+        stroke-width: 5px;
+      }
+
+      .cls-3 {
+        stroke-width: 6px;
+      }
+
+      .cls-5 {
+        fill: #fff;
+        font-family: HelveticaNeue-Bold, 'Helvetica Neue';
+        font-size: 40px;
+        font-weight: 700;
+      }
+    </style>
+  </defs>
+  <rect class="cls-4" x="0" width="720" height="720"/>
+  <path class="cls-2" d="M76,431.36c26.66-18.06,48.53,1.74,81.21,24.29,32.68,22.55,49.02,19.11,67.08,11.37,18.06-7.74,40.42-27.35,67.08-29.16s70.05,32.3,92.22,35.03c22.17,2.73,60.01-17.06,75.49-26.52,15.48-9.46,42.14-17.2,67.08,4.3,24.94,21.5,35.26,23.44,59.34,22.47,24.08-.97,58.48-25.91,58.48-25.91"/>
+  <path class="cls-1" d="M76,457.02c26.66-18.06,48.53,1.74,81.21,24.29,32.68,22.55,49.02,19.11,67.08,11.37,18.06-7.74,40.42-27.35,67.08-29.16s70.05,32.3,92.22,35.03c22.17,2.73,60.01-17.06,75.49-26.52,15.48-9.46,42.14-17.2,67.08,4.3,24.94,21.5,35.26,23.44,59.34,22.47,24.08-.97,58.48-25.91,58.48-25.91"/>
+  <path class="cls-3" d="M76,431.36c.93-149,136.93-276.88,279.93-276.94s286.13,109.28,288.07,292.61"/>
+  <text class="cls-5" transform="translate(338.58 546.34)"><tspan x="0" y="0">VC</tspan></text>
+</svg>

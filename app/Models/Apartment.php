@@ -19,6 +19,7 @@ class Apartment extends Model
         'description',
         'views',
         'bathroom',
+        'enabled',
         'bedroom_laundry',
         'entertainment',
         'for_families',

@@ -32,7 +32,7 @@
 </head>
 
 <body>
-    @include('header')
+    @include('header', ['see_loft' => true, 'see_apartment' => false])
     <section class="show-house">
         <h2 class="title-house">@lang('messages.apartment_in_calafat_spain')</h2>
         <div class="photos">

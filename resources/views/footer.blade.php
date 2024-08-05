@@ -27,8 +27,8 @@
     <div>
         <h4>@lang('messages.development_and_graphic_design_team')</h4>
 
-        <p><b>@lang('messages.web_development'): </b><a href="https://www.linkedin.com/in/%C3%A1lvaro-iglesias-jusmet/"> Álvaro Iglesias Jusmet</a>
-            @lang('messages.and') <a href="https://www.linkedin.com/in/salim-tamazirt-653421256/">Salim Tamazirt Aïchi</a>
+        <p><b>@lang('messages.web_development'): </b><a href="https://www.linkedin.com/in/%C3%A1lvaro-iglesias-jusmet/"> Álvaro Iglesias </a>
+            @lang('messages.and') <a href="https://www.linkedin.com/in/salim-tamazirt-653421256/">Salim Tamazirt </a>
         </p>
         <p><b>@lang('messages.graphic_design'): </b><a href="https://www.linkedin.com/in/maria-galdeano-0a4191195/?originalSubdomain=es"> María Galdeano Serrano</a>
         </p>

@@ -18,8 +18,7 @@ class ApartmentsTableSeeder extends Seeder
             ],
             [
                 'name' => 'Loft con vistas al mar',
-                'description' => 'Loft luminoso con vistas al mar en la Urbanización Calafat de L´Ametlla de Mar. Ideal parejas.
-                El loft, en planta baja, dispone de sofá cama (sistema italiano), vitrocerámica, microondas, nevera grande, cafetera de cápsulas "Dolce Gusto", plato de ducha.',
+                'description' => 'Luminoso loft con vistas al mar en la urbanización Calafat en L\'Ametlla de Mar. Ideal para parejas. El loft, en planta baja, cuenta con terraza con vistas al mar, sofá cama (sistema italiano) con colchón de 140 cm de ancho, placa vitrocerámica, microondas, refrigerador grande, cafetera "Dolce Gusto", plato de ducha. A un minuto andando de una cala de aguas cristalinas.',
             ],
 
         ];

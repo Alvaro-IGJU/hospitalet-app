@@ -3,23 +3,23 @@ let aparmentId = -1;
 let getDay = -1;
 var language = navigator.language || navigator.userLanguage;
 let language_cal = language;
-let reservado = "Reservado";
+let reservado = "Semana ya reservada";
 let semanaYaReservada = "Semana ya reservada";
 let semanaNoDisponible = "Semana no disponible";
 let noche_palabra = "noche";
 if (language == 'en') {
-  reservado = "Reserved";
+  reservado = "Week already reserved";
   semanaYaReservada = "Week already reserved"
   semanaNoDisponible = "Week not available"
   noche_palabra = "night";
 } else if (language == 'fr') {
-  reservado = "Réservé";
+  reservado = "Semaine déjà réservée";
   semanaYaReservada = "Semaine déjà réservée";
   semanaNoDisponible = "Semaine non disponible"
   noche_palabra = "nuit";
 
 } else if (language == 'de') {
-  reservado = "Reserviert";
+  reservado = "Woche bereits reserviert";
   semanaYaReservada = "Woche bereits reserviert";
   semanaNoDisponible = "Woche nicht verfügbar"
   noche_palabra = "abend";

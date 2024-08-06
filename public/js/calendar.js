@@ -3,23 +3,23 @@ let aparmentId = -1;
 let getDay = -1;
 var language = navigator.language || navigator.userLanguage;
 let language_cal = language;
-let reservado = "Semana ya reservada";
+let reservado = "Reservado";
 let semanaYaReservada = "Semana ya reservada";
 let semanaNoDisponible = "Semana no disponible";
 let noche_palabra = "noche";
 if (language == 'en') {
-  reservado = "Week already reserved";
+  reservado = "Reserved";
   semanaYaReservada = "Week already reserved"
   semanaNoDisponible = "Week not available"
   noche_palabra = "night";
 } else if (language == 'fr') {
-  reservado = "Semaine déjà réservée";
+  reservado = "Réservé";
   semanaYaReservada = "Semaine déjà réservée";
   semanaNoDisponible = "Semaine non disponible"
   noche_palabra = "nuit";
 
 } else if (language == 'de') {
-  reservado = "Woche bereits reserviert";
+  reservado = "Reserviert";
   semanaYaReservada = "Woche bereits reserviert";
   semanaNoDisponible = "Woche nicht verfügbar"
   noche_palabra = "abend";
@@ -104,6 +104,7 @@ document.addEventListener("DOMContentLoaded", function () {
     dateClick: function (info) {
       var startDate = new Date(info.date);
       var dayOfWeek = startDate.getDay();
+      scrollToElement('#dateSelector');
 
       if (aparmentId == 1) {
         if (startDate.getDay() != 6) {
@@ -149,6 +150,7 @@ document.addEventListener("DOMContentLoaded", function () {
         calendar.select(startDate, endDate);
         document.querySelectorAll('.fc-highlight').forEach(function (el) {
           el.style.backgroundColor = "rgba(210, 255, 150,.3)";
+
         });
 
         document.getElementById("firstDay").innerHTML = startDate.getDate() + "-" + (mes_actual + 1) + "-" + startDate.getFullYear();
@@ -171,6 +173,7 @@ document.addEventListener("DOMContentLoaded", function () {
         document.querySelectorAll('.fc-highlight').forEach(function (el) {
           el.style.backgroundColor = "rgba(255, 110, 94,.3)";
         });
+
         nocheWord.remove();
 
         nightPrice = semanaYaReservada;
@@ -294,5 +297,27 @@ document.addEventListener('DOMContentLoaded', function () {
     event.stopPropagation();
   });
 });
-
-
+function isElementInViewport(el) {
+  const rect = el.getBoundingClientRect();
+  return (
+      rect.top >= 0 &&
+      rect.left >= 0 &&
+      rect.bottom <= (window.innerHeight || document.documentElement.clientHeight) &&
+      rect.right <= (window.innerWidth || document.documentElement.clientWidth)
+  );
+ }
+ 
+ 
+ function scrollToElement(selector) {
+  const element = document.querySelector(selector);
+  if (element) {
+      const scrollInterval = setInterval(function() {
+          if (!isElementInViewport(element)) {
+              element.scrollIntoView({ behavior: 'smooth', block: 'center' });
+          } else {
+              clearInterval(scrollInterval);
+          }
+      }, 300);
+  }
+ }
+ 

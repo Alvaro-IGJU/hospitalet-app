@@ -27,6 +27,7 @@
     <script>
         var bookings = @json($bookings);
         var freeWeeks = @json($freeWeeks);
+
     </script>
 
 </head>

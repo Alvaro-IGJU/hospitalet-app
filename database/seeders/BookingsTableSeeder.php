@@ -34,6 +34,10 @@ class BookingsTableSeeder extends Seeder
         $currentDate->addWeek();
     }
 
+
+    $startDate = Carbon::createFromDate(null, 5, 1)->startOfWeek(Carbon::SUNDAY); // Primer sábado de mayo
+    // dd($startDate);
+    $endDate = Carbon::createFromDate(null, 9, 30)->endOfWeek(Carbon::SATURDAY); // Último viernes de septiembre
     // Restablecer $currentDate para el segundo bucle
     $currentDate = $startDate->copy();
 

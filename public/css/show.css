@@ -35,7 +35,7 @@
     border-top-left-radius: 20px;
     border-bottom-left-radius: 20px;
     height: 100%;
-
+    object-fit: cover;
 }
 
 .side-photos {

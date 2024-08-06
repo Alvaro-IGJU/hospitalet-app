@@ -1,0 +1,38 @@
+.points-interest{
+    margin-top: 100px;
+    text-align: center;
+}
+
+.list-interest{
+    /* height: 50vh; */
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+
+}
+
+.point-of-interest{
+    display: flex;
+    align-items: center;
+    height: 100px;
+    width: 33%;
+    border-radius: 10px;
+    margin-left: 1%;
+    margin-top: 2%;
+    cursor: pointer;
+    box-shadow: 7px 7px 20px #c9c6c6;
+    font-size: 1.2em;
+    text-decoration: none;
+    overflow: hidden;
+}
+.point-of-interest > .title-link{
+    width: 50%;
+    color: black;
+}
+
+.point-of-interest > img{
+    width: 50%;
+    object-fit: cover;
+    box-shadow: 7px 7px 20px #c9c6c6;
+
+}

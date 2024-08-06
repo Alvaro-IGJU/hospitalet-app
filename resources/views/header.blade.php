@@ -8,6 +8,8 @@
             @if(isset($see_apartment) && $see_apartment && (isset($apartments) && $apartments->get(0)->enabled || (isset($otherApartmentEnabled) && $otherApartmentEnabled)))
                 <li><a href="{{ url('apartments/1') }}">@lang('messages.see_apartment')</a></li>
             @endif
+            <li><a href="{{ url('pointsofinterest') }}">Puntos de interés</a></li>
+
         </ul>
     </nav>
     <meta name="csrf-token" content="{{ csrf_token() }}">

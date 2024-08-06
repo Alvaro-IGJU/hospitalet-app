@@ -81,5 +81,9 @@ class ApartmentController extends Controller
         return $apartment;
     }
 
+    public function interestingPoints(){
+        $apartments = Apartment::all();
+        return view('points_of_interest', ['apartments' => $apartments]);
+    }
     
 }

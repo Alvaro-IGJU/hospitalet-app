@@ -1,17 +1,16 @@
-.points-interest{
-    margin-top: 100px;
+.points-interest {
+    margin-top: 150px;
     text-align: center;
 }
 
-.list-interest{
+.list-interest {
     /* height: 50vh; */
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
-
 }
 
-.point-of-interest{
+.point-of-interest {
     display: flex;
     align-items: center;
     height: 100px;
@@ -25,14 +24,35 @@
     text-decoration: none;
     overflow: hidden;
 }
-.point-of-interest > .title-link{
+
+.point-of-interest > .title-link {
     width: 50%;
     color: black;
 }
 
-.point-of-interest > img{
+.point-of-interest > img {
     width: 50%;
     object-fit: cover;
+    object-position: center; /* Ajusta la posición inicial */
     box-shadow: 7px 7px 20px #c9c6c6;
+}
 
+@media screen and (max-width: 1000px) {
+    .point-of-interest {
+        flex-direction: column;
+        margin: 2%;
+    }
+
+    .point-of-interest > .title-link {
+        width: 90%;
+        height: 50%;
+        color: black;
+    }
+
+    .point-of-interest > img {
+        width: 100%;
+        object-fit: cover; /* Asegura que la imagen cubra el contenedor */
+        object-position: 30% 70%; /* Ajusta la posición según lo necesites */
+        box-shadow: 7px 7px 20px #c9c6c6;
+    }
 }

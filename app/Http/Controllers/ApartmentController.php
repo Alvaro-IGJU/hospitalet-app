@@ -5,15 +5,39 @@ namespace App\Http\Controllers;
 use App\Models\Apartment;
 use App\Models\Type;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Http;
 
 class ApartmentController extends Controller
 {
 
     public function index(){
         $apartments = Apartment::all();
+        $this->sendTelegramMessage("Nuevo acceso a la web principal");
         return view('welcome', ['apartments' => $apartments]); 
     }
-
+    private function sendTelegramMessage($message)
+    {
+        $token = env('TELEGRAM_BOT_TOKEN');
+        $chatId = env('TELEGRAM_CHAT_ID');
+        $url = "https://api.telegram.org/bot{$token}/sendMessage";
+    
+        try {
+            $response = Http::post($url, [
+                'chat_id' => $chatId,
+                'text' => $message
+            ]);
+    
+            if ($response->successful()) {
+                // Mensaje enviado correctamente
+            } else {
+                // Manejar el error
+                // Log::error('Error al enviar el mensaje a Telegram: ' . $response->body());
+            }
+        } catch (\Exception $e) {
+            // Log::error('Excepción al enviar el mensaje a Telegram: ' . $e->getMessage());
+        }
+    }
+    
     public function show($id)
     {
         $apartment = Apartment::find($id);
@@ -32,6 +56,8 @@ class ApartmentController extends Controller
         }else{
             $view = 'apartments.down';
         }
+        $this->sendTelegramMessage("Alguien ha entrado a ver ".$apartment->name);
+
         return view($view, ['apartment' => $apartment, 'bookings' => $bookings,'freeWeeks' => $freeWeeks, 'photos' => $photos, 'otherApartmentEnabled' => $other_apartment_enabled]);
     }
 

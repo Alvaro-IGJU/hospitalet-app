@@ -1,6 +1,6 @@
-<footer class="rules">
-    <div>
-        <img src="https://www.calablancamenorca.com/images/calablanca/logo_calablanca.webp" alt="">
+<!-- <footer class="rules">
+    <div class="footer_logo">
+    <img src="{{ asset('uploads/logo/Archivo/SVG/DEF-02.svg') }}" alt="">
     </div>
 
     <div>
@@ -35,4 +35,4 @@
 
     </div>
 
-</footer>
+</footer> -->

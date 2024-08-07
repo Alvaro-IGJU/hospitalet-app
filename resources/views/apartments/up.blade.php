@@ -5,6 +5,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>@lang('messages.apartment_in_calafat_spain')</title>
+    <link rel="icon" type="image/svg+xml" href="{{ asset('uploads/logo/Archivo/SVG/DEF-02.svg') }}">
+
     <link rel="stylesheet" href="{{ url('css/app.css') }}" type="text/css">
     <link rel="stylesheet" href="{{ url('css/header_footer.css') }}" type="text/css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
@@ -511,7 +513,10 @@
             <div id="fixedCalendar">
 
 
-                <div id='calendar'></div>
+                <div id='calendar'>
+                <p style="margin-top: 10px;text-align:center;">Solicita la reserva en <b>info@vacaciones.calafatplaya.com</b></p>
+
+                </div>
                 <div id="dateSelector">
                     <div id="priceNight">
                         <b id="weekNightPrice">@lang('messages.select_week')</b>

@@ -84,7 +84,26 @@ return [
     'web_development' => 'Développement web',
     'graphic_design' => 'Design graphique',
     'and' => 'et',
-    'see_loft' => 'Voir le loft',
-    'see_apartment' => 'Voir l\'appartement',
+    'see_loft' => 'Loft',
+    'see_apartment' => 'Appartement',
+    'information_interest_header' => 'Informations intéressantes',
+    'page_interest_title' => 'Points d\'intérêt',
+    'information_interest' => 'Informations intéressantes sur Calafat et ses environs :',
+    'karting_calafat' => 'Karting Calafat',
+    'ametlla_de_mar' => 'L\'Ametlla de Mar',
+    'diving' => 'Plongée',
+    'tuna_experience' => 'Expérience avec les thons',
+    'gr92' => 'GR 92',
+    'portaventura' => 'Portaventura',
+    'nudist_beach' => 'Plage naturiste du Torn',
+    'terres_de_ebre' => 'Terres de l\'Ebre',
+    'cambrils_cruise' => 'Croisière depuis Cambrils',
+    'thermal_spa' => 'Spa thermal',
+    'tarragona' => 'Tarragone',
+    'tarragona_casino' => 'Casino de Tarragone',
+    'reus_airport' => 'Aéroport de Reus (40 km de Calafat)',
+    'barcelona_airport' => 'Aéroport de Barcelone (135 km de Calafat)',
+    'request_reservation' => 'Demandez votre réservation à '
+
 
 ];

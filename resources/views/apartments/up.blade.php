@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>@lang('messages.apartment_in_calafat_spain')</title>
-    <link rel="icon" type="image/svg+xml" href="{{ asset('uploads/logo/Archivo/SVG/DEF-02.svg') }}">
+    <link rel="icon" type="image/svg+xml" href="{{ asset('uploads/logo/Archivo/SVG/DEF-02_icon.svg') }}">
 
     <link rel="stylesheet" href="{{ url('css/app.css') }}" type="text/css">
     <link rel="stylesheet" href="{{ url('css/header_footer.css') }}" type="text/css">
@@ -507,14 +507,30 @@
 
             </div>
 
-
+            <section class="things-to-know">
+                <h5>@lang('messages.what_to_know')</h5>
+                <ul>
+                    <li><b>@lang('messages.entry_day'):</b> @lang('messages.entry_day_saturday')</li>
+                    <li><b>@lang('messages.entry_time'):</b> @lang('messages.entry_time_value')</li>
+                    <li><b>@lang('messages.exit_time'):</b> @lang('messages.exit_time_value')</li>
+                    <li><b>@lang('messages.capacity'):</b> @lang('messages.capacity_value')</li>
+                    <li><b>@lang('messages.minimum_stay'):</b> @lang('messages.minimum_stay_value')</li>
+                    <li><b>@lang('messages.deposit'):</b> @lang('messages.deposit_value')</li>
+                    <li>@lang('messages.discounts_info')</li>    
+                </ul>
+                <h5>@lang('messages.want_to_know_more')</h5>
+                <ul>
+                    <p>@lang('messages.contact_us')</p>
+                    <span>@lang('messages.email'): <b>@lang('messages.email_address')</b></span>
+                </ul>
+            </section>
         </div>
         <div id="datePickDiv">
             <div id="fixedCalendar">
 
 
                 <div id='calendar'>
-                <p style="margin-top: 10px;text-align:center;">Solicita la reserva en <b>info@vacaciones.calafatplaya.com</b></p>
+                <p style="margin-top: 10px;text-align:center;">@lang('messages.request_reservation') <b>info@vacaciones.calafatplaya.com</b></p>
 
                 </div>
                 <div id="dateSelector">

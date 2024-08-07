@@ -145,6 +145,10 @@
     display: none;
 }
 
+.things-to-know h5{
+    margin-top: 4%;
+}
+
 #fixedCalendar {
     height: max-content;
     position: sticky;

@@ -30,11 +30,11 @@
             </a>
             <a href="https://marinadiving.cat/" class="point-of-interest">
                 <h5 class="title-link">@lang('messages.diving')</h5>
-                <img src="{{ asset('uploads/interesting_points/marinadiving.png') }}" alt="@lang('messages.alt_diving')">
+                <img src="{{ asset('uploads/interesting_points/marinadiving.jpg') }}" alt="@lang('messages.alt_diving')">
             </a>
-            <a href="https://karting.circuitcalafat.com/" class="point-of-interest">
+            <a href="https://tuna-tour.com/tuna-tour-experience/" class="point-of-interest">
                 <h5 class="title-link">@lang('messages.tuna_experience')</h5>
-                <img src="{{ asset('uploads/interesting_points/FotoKarting.webp') }}" alt="@lang('messages.alt_tuna_experience')">
+                <img src="{{ asset('uploads/interesting_points/tunatour.png') }}" alt="@lang('messages.alt_tuna_experience')">
             </a>
             <a href="https://www.wikiloc.com/hiking-trails/gr-92-lametlla-de-mar-lampolla-16735726" class="point-of-interest">
                 <h5 class="title-link">@lang('messages.gr92')</h5>
@@ -66,7 +66,7 @@
             </a>
             <a href="https://www.casinotarragona.com/" class="point-of-interest">
                 <h5 class="title-link">@lang('messages.tarragona_casino')</h5>
-                <img src="{{ asset('uploads/interesting_points/casino_de_tarragona.jpeg') }}" alt="@lang('messages.alt_tarragona_casino')">
+                <img src="{{ asset('uploads/interesting_points/casino-de-tarragona.png') }}" alt="@lang('messages.alt_tarragona_casino')">
             </a>
             <a href="https://www.aena.es/es/reus.html?utm_source=Google&utm_medium=GMB_REU" class="point-of-interest">
                 <h5 class="title-link">@lang('messages.reus_airport')</h5>

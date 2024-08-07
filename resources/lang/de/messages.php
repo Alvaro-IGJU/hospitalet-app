@@ -105,7 +105,25 @@ return [
     'reus_airport' => 'Flughafen Reus (40 km von Calafat)',
     'barcelona_airport' => 'Flughafen Barcelona (135 km von Calafat)',
     'request_reservation' => 'Fordern Sie Ihre Reservierung an unter ',
-    
+    'what_to_know' => 'Was sollten Sie wissen?',
+    'entry_day' => 'Anreisetag',
+    'entry_day_sunday' => 'Sonntag',
+    'entry_day_saturday' => 'Samstag',
+    'entry_time' => 'Anreisezeit',
+    'entry_time_value' => 'Ab 16:00 Uhr',
+    'exit_time' => 'Abreisezeit',
+    'exit_time_value' => 'Vor 10:00 Uhr',
+    'capacity' => 'Kapazität',
+    'capacity_value' => '2 Personen',
+    'minimum_stay' => 'Mindestaufenthalt',
+    'minimum_stay_value' => '7 Tage',
+    'deposit' => 'Kaution',
+    'deposit_value' => 'Verpflichtend',
+    'discounts_info' => 'Rabatte für mehr als 1 Woche anfragen',
+    'want_to_know_more' => 'Möchten Sie mehr wissen?',
+    'contact_us' => 'Zögern Sie nicht, uns zu kontaktieren, wenn Sie Fragen haben. Wir helfen Ihnen gerne weiter!',
+    'email' => 'E-Mail',
+    'email_address' => 'info@vacaciones.calafatplaya.com',
 
 
 

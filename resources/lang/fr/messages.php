@@ -103,7 +103,26 @@ return [
     'tarragona_casino' => 'Casino de Tarragone',
     'reus_airport' => 'Aéroport de Reus (40 km de Calafat)',
     'barcelona_airport' => 'Aéroport de Barcelone (135 km de Calafat)',
-    'request_reservation' => 'Demandez votre réservation à '
-
+    'request_reservation' => 'Demandez votre réservation à ',
+    'what_to_know' => 'Que devez-vous savoir?',
+    'entry_day' => 'Jour d\'arrivée',
+    'entry_day_sunday' => 'Dimanche',
+    'entry_day_saturday' => 'Samedi',
+    'entry_time' => 'Heure d\'arrivée',
+    'entry_time_value' => 'À partir de 16:00 h',
+    'exit_time' => 'Heure de départ',
+    'exit_time_value' => 'Avant 10:00 h',
+    'capacity' => 'Capacité',
+    'capacity_value' => '2 personnes',
+    'minimum_stay' => 'Séjour minimum',
+    'minimum_stay_value' => '7 jours',
+    'deposit' => 'Dépôt',
+    'deposit_value' => 'Obligatoire',
+    'discounts_info' => 'Consulter les remises pour plus d\'1 semaine',
+    'want_to_know_more' => 'Voulez-vous en savoir plus?',
+    'contact_us' => 'N\'hésitez pas à nous contacter si vous avez des questions. Nous serons ravis de vous aider!',
+    'email' => 'E-mail',
+    'email_address' => 'info@vacaciones.calafatplaya.com',
+    
 
 ];

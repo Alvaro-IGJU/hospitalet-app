@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Bienvenido</title>
-    <link rel="icon" type="image/svg+xml" href="{{ asset('uploads/logo/Archivo/SVG/DEF-02.svg') }}">
+    <link rel="icon" type="image/svg+xml" href="{{ asset('uploads/logo/Archivo/SVG/DEF-02_icon.svg') }}">
 
     <link rel="stylesheet" href="{{ url('css/app.css') }}" type="text/css">
     <link rel="stylesheet" href="{{ url('css/header_footer.css') }}" type="text/css">

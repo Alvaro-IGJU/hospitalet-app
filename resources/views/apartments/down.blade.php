@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>@lang('messages.loft_in_calafat_spain')</title>
-    <link rel="icon" type="image/svg+xml" href="{{ asset('uploads/logo/Archivo/SVG/DEF-02.svg') }}">
+    <link rel="icon" type="image/svg+xml" href="{{ asset('uploads/logo/Archivo/SVG/DEF-02_icon.svg') }}">
 
     <link rel="stylesheet" href="{{ url('css/app.css') }}" type="text/css">
     <link rel="stylesheet" href="{{ url('css/header_footer.css') }}" type="text/css">
@@ -795,6 +795,23 @@
 
             </div>
 
+            <section class="things-to-know">
+                <h5>@lang('messages.what_to_know')</h5>
+                <ul>
+                    <li><b>@lang('messages.entry_day'):</b> @lang('messages.entry_day_sunday')</li>
+                    <li><b>@lang('messages.entry_time'):</b> @lang('messages.entry_time_value')</li>
+                    <li><b>@lang('messages.exit_time'):</b> @lang('messages.exit_time_value')</li>
+                    <li><b>@lang('messages.capacity'):</b> @lang('messages.capacity_value')</li>
+                    <li><b>@lang('messages.minimum_stay'):</b> @lang('messages.minimum_stay_value')</li>
+                    <li><b>@lang('messages.deposit'):</b> @lang('messages.deposit_value')</li>
+                    <li>@lang('messages.discounts_info')</li>    
+                </ul>
+                <h5>@lang('messages.want_to_know_more')</h5>
+                <ul>
+                    <p>@lang('messages.contact_us')</p>
+                    <span>@lang('messages.email'): <b>@lang('messages.email_address')</b></span>
+                </ul>
+            </section>
 
         </div>
         <div id="datePickDiv">
@@ -840,7 +857,9 @@
                 </div>
             </div>
         </div>
+
     </section>
+   
     <section id="googleMaps">
         <iframe
             src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d12057.588654651208!2d0.8369571726501279!3d40.92896200360809!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x12a115c7152cc26f%3A0x7997ac69c89313b3!2sCalafat%2C%20Tarragona!5e0!3m2!1ses!2ses!4v1709579150804!5m2!1ses!2ses"

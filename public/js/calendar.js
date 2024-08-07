@@ -87,7 +87,7 @@ function generateEvents(info, successCallback, failureCallback) {
 
 document.addEventListener("DOMContentLoaded", function () {
   var calendarEl = document.getElementById("calendar");
-
+ 
   var calendar = new FullCalendar.Calendar(calendarEl, {
     timeZone: "UTC",
     initialView: "dayGridMonth",
@@ -100,6 +100,10 @@ document.addEventListener("DOMContentLoaded", function () {
       start: "00:00",
       end: "23:59",
       dow: [0, 1, 2, 3, 4, 5, 6],
+    },
+    validRange: {
+      start: '2025-06-01',
+      end: '2025-10-01' // Octubre no está incluido
     },
     dateClick: function (info) {
       var startDate = new Date(info.date);

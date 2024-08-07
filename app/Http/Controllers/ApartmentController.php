@@ -12,7 +12,15 @@ class ApartmentController extends Controller
 
     public function index(){
         $apartments = Apartment::all();
-        $this->sendTelegramMessage("Nuevo acceso a la web principal");
+        $apartments = Apartment::all();
+
+        $currentDateTime = date('d-m-Y H:i:s'); 
+
+        $message = "Nuevo acceso a la web principal. \nFecha y hora: {$currentDateTime}";
+
+        // Enviar el mensaje a Telegram
+        $this->sendTelegramMessage($message);
+
         return view('welcome', ['apartments' => $apartments]); 
     }
     private function sendTelegramMessage($message)
@@ -56,7 +64,9 @@ class ApartmentController extends Controller
         }else{
             $view = 'apartments.down';
         }
-        $this->sendTelegramMessage("Alguien ha entrado a ver ".$apartment->name);
+        $currentDateTime = date('d-m-Y H:i:s'); 
+
+        $this->sendTelegramMessage("Alguien ha entrado a ver ".$apartment->name .". \nFecha y hora: {$currentDateTime}");
 
         return view($view, ['apartment' => $apartment, 'bookings' => $bookings,'freeWeeks' => $freeWeeks, 'photos' => $photos, 'otherApartmentEnabled' => $other_apartment_enabled]);
     }

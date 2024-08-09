@@ -12,17 +12,42 @@ class ApartmentController extends Controller
 
     public function index(){
         $apartments = Apartment::all();
-        $apartments = Apartment::all();
 
         $currentDateTime = date('d-m-Y H:i:s'); 
-
-        $message = "Nuevo acceso a la web principal. \nFecha y hora: {$currentDateTime}";
+        $userIp = request()->ip();
+        $country = $this->getLocationByIp($userIp);
+        $message = "Nuevo acceso a la web principal desde {$country}. \nFecha y hora: {$currentDateTime}";
 
         // Enviar el mensaje a Telegram
         $this->sendTelegramMessage($message);
 
         return view('welcome', ['apartments' => $apartments]); 
     }
+
+    private function getLocationByIp($ip)
+    {
+        $url = "http://ip-api.com/json/{$ip}?fields=status,country,regionName,city,query";
+
+        try {
+            $response = Http::get($url);
+
+            if ($response->successful()) {
+                $data = $response->json();
+
+                if ($data['status'] === 'success') {
+                    $country = $data['country'] ?? 'desconocido';
+                    $region = $data['regionName'] ?? '';
+                    $city = $data['city'] ?? '';
+                    return "{$city}, {$region}, {$country}";
+                }
+            }
+
+            return 'desconocido';
+        } catch (\Exception $e) {
+            return 'desconocido';
+        }
+    }
+
     private function sendTelegramMessage($message)
     {
         $token = env('TELEGRAM_BOT_TOKEN');
@@ -49,26 +74,29 @@ class ApartmentController extends Controller
     public function show($id)
     {
         $apartment = Apartment::find($id);
-        $other_apartment_enabled = Apartment::find($id== 1? 2:1)->enabled;
+        $other_apartment_enabled = Apartment::find($id == 1 ? 2 : 1)->enabled;
         if (!$apartment) {
             abort(404, 'Apartamento no encontrado');
         }
 
         // Obtener solo los bookings donde la columna "booked" sea igual a 1
         $bookings = $apartment->bookings()->where('booked', 1)->get();
-        $freeWeeks =  $apartment->bookings()->where('booked', 0)->get();
+        $freeWeeks = $apartment->bookings()->where('booked', 0)->get();
         $photos = $this->getApartmentPhotos($id);
         $view = "";
-        if($id == 1){
+        if ($id == 1) {
             $view = 'apartments.up';
-        }else{
+        } else {
             $view = 'apartments.down';
         }
+
         $currentDateTime = date('d-m-Y H:i:s'); 
+        $userIp = request()->ip();
+        $country = $this->getLocationByIp($userIp);
 
-        $this->sendTelegramMessage("Alguien ha entrado a ver ".$apartment->name .". \nFecha y hora: {$currentDateTime}");
+        $this->sendTelegramMessage("Alguien ha entrado a ver " . $apartment->name . " desde {$country}. \nFecha y hora: {$currentDateTime}");
 
-        return view($view, ['apartment' => $apartment, 'bookings' => $bookings,'freeWeeks' => $freeWeeks, 'photos' => $photos, 'otherApartmentEnabled' => $other_apartment_enabled]);
+        return view($view, ['apartment' => $apartment, 'bookings' => $bookings, 'freeWeeks' => $freeWeeks, 'photos' => $photos, 'otherApartmentEnabled' => $other_apartment_enabled]);
     }
 
 

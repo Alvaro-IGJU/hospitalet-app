@@ -157,8 +157,8 @@ document.addEventListener("DOMContentLoaded", function () {
 
         });
 
-        document.getElementById("firstDay").innerHTML = startDate.getDate() + "-" + (mes_actual + 1) + "-" + startDate.getFullYear();
-        document.getElementById("finalDay").innerHTML = endDate.getDate() + "-" + (mes_actual + 1) + "-" + endDate.getFullYear();
+        document.getElementById("firstDay").innerHTML = startDate.getDate() + "-" + (startDate.getMonth() +1) + "-" + startDate.getFullYear();
+        document.getElementById("finalDay").innerHTML = endDate.getDate() + "-" + (endDate.getMonth() +1) + "-" + endDate.getFullYear();
         document.getElementById("weekNightPrice").innerHTML = nightPrice;
 
         if (nightPrice !== semanaNoDisponible) {

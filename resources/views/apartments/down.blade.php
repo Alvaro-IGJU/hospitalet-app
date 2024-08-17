@@ -810,6 +810,8 @@
                 <ul>
                     <p>@lang('messages.contact_us')</p>
                     <span>@lang('messages.email'): <b>@lang('messages.email_address')</b></span>
+                    <br>
+                    <span>@lang('messages.telephone'): <b>+34 619 15 49 43</b></span>
                 </ul>
             </section>
 

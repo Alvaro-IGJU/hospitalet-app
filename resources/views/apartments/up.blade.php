@@ -521,7 +521,8 @@
                 <h5>@lang('messages.want_to_know_more')</h5>
                 <ul>
                     <p>@lang('messages.contact_us')</p>
-                    <span>@lang('messages.email'): <b>@lang('messages.email_address')</b></span>
+                    <span>@lang('messages.email'): <b>@lang('messages.email_address')</b></span><br>
+                    <span>@lang('messages.telephone'): <b>+34 619 15 49 43</b></span>
                 </ul>
             </section>
         </div>

@@ -123,5 +123,6 @@ return [
     'contact_us' => 'Do not hesitate to contact us if you have any questions. We will be happy to help you!',
     'email' => 'E-mail',
     'email_address' => 'info@vacaciones.calafatplaya.com',
-
+    'telephone' => 'Telephone'
+    
 ];

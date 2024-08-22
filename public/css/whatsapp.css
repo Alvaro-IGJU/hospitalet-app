@@ -1,0 +1,25 @@
+.whatsapp-btn {
+    position: fixed;
+    bottom: 2%;
+    right: 2%;
+    z-index: 1000;
+    width: 80px;
+    height: 80px;
+    background-color: #25D366; /* Color verde oficial de WhatsApp */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50px;
+    border: none; /* Quitar borde */
+    text-decoration: none;
+    color: white; /* Cambiar color del ícono a blanco */
+}
+
+.whatsapp-btn i {
+    font-size: 40px;
+}
+
+.whatsapp-btn:hover {
+    background-color: #24b95b; /* Color verde oficial de WhatsApp */
+
+}

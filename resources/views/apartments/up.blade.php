@@ -9,6 +9,7 @@
 
     <link rel="stylesheet" href="{{ url('css/app.css') }}" type="text/css">
     <link rel="stylesheet" href="{{ url('css/header_footer.css') }}" type="text/css">
+    <link rel="stylesheet" href="{{ url('css/whatsapp.css') }}" type="text/css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
         integrity="sha512-**" crossorigin="anonymous" />
 
@@ -522,7 +523,7 @@
                 <ul>
                     <p>@lang('messages.contact_us')</p>
                     <span>@lang('messages.email'): <b>@lang('messages.email_address')</b></span><br>
-                    <span>@lang('messages.telephone'): <b>+34 619 15 49 43</b></span>
+                    <span>@lang('messages.telephone'): <b>(+34) 619 15 49 43</b></span>
                 </ul>
             </section>
         </div>
@@ -577,7 +578,8 @@
             referrerpolicy="no-referrer-when-downgrade"></iframe>
 
     </section>
-
+    
+    @include('whatsapp')
     @include('footer')
 
 

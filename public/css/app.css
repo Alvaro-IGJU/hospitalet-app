@@ -100,7 +100,7 @@
         margin-top: 150px;
     }
 } */
-@media (max-width: 380px) {
+@media (max-width: 420px) {
     .list-houses{
         display: flex;
         flex-direction: column;
@@ -111,6 +111,7 @@
     .card-house{
         width: 70%;
         height: 280px;
+        padding-bottom: 75px;
     }
 
     .card-house:nth-child(2){
@@ -123,7 +124,7 @@
     }
 }
 /* Dispositivos muy pequeños (teléfonos móviles en modo retrato, menos de 480px) */
-@media (min-width: 380px) and (max-width: 480px) {
+@media (min-width: 420px) and (max-width: 480px) {
     .list-houses{
         display: flex;
         flex-direction: column;
@@ -133,7 +134,7 @@
 
     .card-house{
         width: 70%;
-        height: 300px;
+        height: 350px;
     }
 
     .card-house:nth-child(2){

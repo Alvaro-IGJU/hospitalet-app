@@ -124,5 +124,8 @@ return [
     'contact_us' => 'No dudes en ponerte en contacto con nosotros si tienes alguna pregunta. ¡Estaremos encantados de ayudarte!',
     'email' => 'E-mail',
     'email_address' => 'info@vacaciones.calafatplaya.com',
-    'telephone' => 'Teléfono'
+    'telephone' => 'Teléfono',
+    'airbnb_find_us' => 'También puedes encontrarnos en Airbnb. Haz clic ',
+    'here' => 'aquí.',
+
 ];

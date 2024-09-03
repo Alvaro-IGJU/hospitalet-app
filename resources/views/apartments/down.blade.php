@@ -812,7 +812,11 @@
                     <p>@lang('messages.contact_us')</p>
                     <span>@lang('messages.email'): <b>@lang('messages.email_address')</b></span>
                     <br>
-                    <span>@lang('messages.telephone'): <b>(+34) 619 15 49 43</b></span>
+                    <span>@lang('messages.telephone'): <b>(+34) 619 15 49 43</b></span><br>
+                    <span>@lang('messages.airbnb_find_us')<a href="https://www.airbnb.es/rooms/18350585?source_impression_id=p3_1725378868_P3UyYpG4ldf4obQf">
+                    <b>@lang('messages.here')</b>     
+                    <img class="airbnb-logo" src="{{ asset('uploads/airbnb/airbnb-logo.png') }}" >
+                    </a></span>
                 </ul>
             </section>
 

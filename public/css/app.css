@@ -48,6 +48,8 @@
     /* height: 700px; */
     /* width: 50%; */
     cursor: pointer;
+    background-color: #f3f1f1;
+
 }
 .card-house img{
     width: 100%;
@@ -92,7 +94,9 @@
     margin: 4%;
 } */
 
-
+.airbnb-logo{
+    width: 53px;
+}
 
 /* 
 @media (min-height: 900px) {

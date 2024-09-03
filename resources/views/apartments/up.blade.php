@@ -523,7 +523,12 @@
                 <ul>
                     <p>@lang('messages.contact_us')</p>
                     <span>@lang('messages.email'): <b>@lang('messages.email_address')</b></span><br>
-                    <span>@lang('messages.telephone'): <b>(+34) 619 15 49 43</b></span>
+                    <span>@lang('messages.telephone'): <b>(+34) 619 15 49 43</b></span><br>
+
+                    <span>@lang('messages.airbnb_find_us')<a href="https://www.airbnb.es/rooms/948613050943534544?adults=1&children=0&enable_m3_private_room=true&infants=0&pets=0&search_mode=regular_search&check_in=2024-09-07&check_out=2024-09-14&source_impression_id=p3_1725374988_P3826qEu8cVNQua2&previous_page_section_name=1000&federated_search_id=9922026d-03b6-4cf3-b4ee-8a981c2e3264">
+                    <b>@lang('messages.here')</b>      
+                    <img class="airbnb-logo" src="{{ asset('uploads/airbnb/airbnb-logo.png') }}" >
+                    </a></span>
                 </ul>
             </section>
         </div>
